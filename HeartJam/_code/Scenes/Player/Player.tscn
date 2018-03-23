@@ -2,12 +2,12 @@
 
 [ext_resource path="res://_code/Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://default_canvasitemmaterial.tres" type="Material" id=2]
-[ext_resource path="res://_graphics/Player/Player_move_1.png" type="Texture" id=3]
+[ext_resource path="res://_graphics/Player/Player_stand.png" type="Texture" id=3]
 [ext_resource path="res://_code/Scenes/_TESTING/light.png" type="Texture" id=4]
 [ext_resource path="res://_graphics/Player/Player_jump.png" type="Texture" id=5]
-[ext_resource path="res://_graphics/Player/Player_move_3.png" type="Texture" id=6]
-[ext_resource path="res://_graphics/Player/Player_move_4.png" type="Texture" id=7]
-[ext_resource path="res://_graphics/Player/Player_stand.png" type="Texture" id=8]
+[ext_resource path="res://_graphics/Player/Player_move_1.png" type="Texture" id=6]
+[ext_resource path="res://_graphics/Player/Player_move_3.png" type="Texture" id=7]
+[ext_resource path="res://_graphics/Player/Player_move_4.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -17,7 +17,7 @@ extents = Vector2( 17, 30 )
 [sub_resource type="Animation" id=5]
 
 resource_name = "jump_left"
-length = 1.0
+length = 0.01
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -60,7 +60,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=6]
 
 resource_name = "jump_right"
-length = 1.0
+length = 0.01
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -116,7 +116,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 3 ) ]
+"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:offset")
@@ -159,7 +159,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 3 ) ]
+"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:offset")
@@ -189,7 +189,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=4]
 
 resource_name = "stand"
-length = 1.0
+length = 0.01
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -202,7 +202,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 8 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:scale")
@@ -229,7 +229,7 @@ tracks/2/keys = {
 "values": [ Vector2( -0.5, 0 ) ]
 }
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -279,7 +279,32 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range" ]
 
-[node name="Anim" type="AnimationPlayer" parent="." index="3"]
+[node name="Sight" type="Light2D" parent="." index="3"]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 4 )
+offset = Vector2( 0, 0 )
+texture_scale = 0.25
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 7
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range" ]
+
+[node name="Anim" type="AnimationPlayer" parent="." index="4"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -293,7 +318,7 @@ anims/move_right = SubResource( 2 )
 anims/stand = SubResource( 4 )
 blend_times = [  ]
 
-[node name="Camera2D" type="Camera2D" parent="." index="4"]
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
 
 anchor_mode = 1
 rotating = false

@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://default_canvasitemmaterial.tres" type="Material" id=1]
-[ext_resource path="res://_graphics/Tileset_1.png" type="Texture" id=2]
+[ext_resource path="res://_graphics/Tilesets/Tileset_1.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -27,19 +26,33 @@ extents = Vector2( 16, 16 )
 
 [node name="Wall" type="Sprite" parent="." index="0"]
 
-material = ExtResource( 1 )
+editor/display_folded = true
 position = Vector2( 16, 16 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 32, 32, 32, 32 )
 _sections_unfolded = [ "Material", "Region" ]
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="Wall" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D2" index="0"]
+
+shape = SubResource( 1 )
+
 [node name="Wall_bottom" type="Sprite" parent="." index="1"]
 
 editor/display_folded = true
-material = ExtResource( 1 )
 position = Vector2( 16, 48 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 64, 32, 32 )
 _sections_unfolded = [ "Material", "Region" ]
@@ -61,9 +74,8 @@ shape = SubResource( 1 )
 [node name="Wall_bottom2" type="Sprite" parent="." index="2"]
 
 editor/display_folded = true
-material = ExtResource( 1 )
 position = Vector2( 48, 48 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 32, 64, 32, 32 )
 _sections_unfolded = [ "Material", "Region" ]
@@ -87,9 +99,8 @@ _sections_unfolded = [ "Transform" ]
 [node name="Wall_bottom3" type="Sprite" parent="." index="3"]
 
 editor/display_folded = true
-material = ExtResource( 1 )
 position = Vector2( 80, 48 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 64, 64, 32, 32 )
 _sections_unfolded = [ "Material", "Region" ]
@@ -110,9 +121,9 @@ shape = SubResource( 3 )
 
 [node name="Wall_bottom4" type="Sprite" parent="." index="4"]
 
-material = ExtResource( 1 )
+editor/display_folded = true
 position = Vector2( 112, 48 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 96, 64, 32, 32 )
 _sections_unfolded = [ "Material", "Region" ]
@@ -133,9 +144,8 @@ shape = SubResource( 4 )
 
 [node name="Ground" type="Sprite" parent="." index="5"]
 
-material = ExtResource( 1 )
 position = Vector2( 16, 80 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 96, 32, 32 )
 _sections_unfolded = [ "Material", "Region" ]

@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tileset_1.png-479b2f65fd8472846a99f8f18c74c5bc.stex"
+path="res://.import/Tileset_1.png-df0243f31b5c83b6ec2ab436476807e3.stex"
 
 [deps]
 
-source_file="res://_graphics/Tileset_1.png"
+source_file="res://_graphics/Tilesets/Tileset_1.png"
 source_md5="40782425c5f82ab63c443c353f8c9276"
 
-dest_files=[ "res://.import/Tileset_1.png-479b2f65fd8472846a99f8f18c74c5bc.stex" ]
+dest_files=[ "res://.import/Tileset_1.png-df0243f31b5c83b6ec2ab436476807e3.stex" ]
 dest_md5="5c9fe133a3bf02f4e7c79120fa6532d6"
 
 [params]
