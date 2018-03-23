@@ -4,19 +4,14 @@
 [ext_resource path="res://_code/Scenes/Menu/Menu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 
-[node name="Paused" type="Control"]
+[node name="Paused" type="CanvasLayer" index="0"]
 
 pause_mode = 2
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
@@ -44,10 +39,6 @@ _sections_unfolded = [ "Rect" ]
 [node name="Menu" parent="." index="1" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-margin_left = 16.0
-margin_top = 64.0
-margin_right = 1296.0
-margin_bottom = 784.0
 
 [node name="Start" parent="Menu" index="0"]
 
@@ -65,6 +56,7 @@ visible = false
 [node name="Resolution" parent="Menu/Options_Panel" index="1"]
 
 text = "1024x576"
+items = [ "1024x576", null, false, 0, null, "1280x720", null, false, 1, null, "1664x936", null, false, 2, null, "1920x1080", null, false, 3, null ]
 selected = 0
 
 [node name="Credits" parent="Menu" index="5"]

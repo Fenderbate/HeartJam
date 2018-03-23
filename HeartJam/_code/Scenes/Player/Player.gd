@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+var s_stand = preload("res://_graphics/Player/Player_stand.png")
+var s_jump = preload("res://_graphics/Player/Player_jump.png")
+
 var dir = 0
 var spd = 200
 var gravity = 200
@@ -35,14 +38,29 @@ func input():
 	dir = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	if Input.is_action_just_pressed("up") and is_on_floor(): motion.y = JUMP_HEIGHT
 	
+	#if dir != 0: $Sprite.scale.x = 2* dir
+	
+	if!is_on_floor() and !$Anim.current_animation.begins_with("jump"):
+		print("jump")
+		match dir:
+			-1: $Anim.play("jump_left")
+			1: $Anim.play("jump_right")
+	elif dir == 0 and is_on_floor() and !$Anim.current_animation.begins_with("stand"):
+		print("stand")
+		$Anim.play("stand")
+	elif dir != 0 and is_on_floor() and !$Anim.current_animation.begins_with("move"):
+		print("move")
+		match dir:
+			-1: $Anim.play("move_left")
+			1: $Anim.play("move_right")
 	
 	if Input.is_action_pressed("magic_eyes"): magic_eyes()
 	elif Input.is_action_pressed("bat_ears"): Global.batears = true
-	elif Input.is_action_pressed("vibration"): vibration(get_parent().get_node("ASD/ASD"))
+	elif Input.is_action_pressed("vibration"): Global.vibration = true#vibration(get_parent().get_node("ASD/ASD"))
 	else:
 		$MagicEyes.hide()
 		Global.batears = false
-		#turn off vibration
+		Global.vibration = false
 	
 	
 
@@ -54,19 +72,5 @@ func magic_eyes():
 	if(!$MagicEyes.visible): $MagicEyes.show()
 	$MagicEyes.position = get_local_mouse_position()
 
-func bat_ears():
-	if(Input.is_action_just_pressed("left_click")):
-		var b = load("res://_code/Scenes/Player/BatSpot.tscn").instance()
-		b.position = get_global_mouse_position()
-		get_parent().add_child(b)
 
-func vibration(target):
-	if(Input.is_action_just_pressed("left_click")):
-		var v = load("res://_code/Scenes/Player/VibrationImage.tscn").instance()
-		v.scale = target.scale
-		v.texture = target.texture
-		v.hframes = target.hframes
-		v.vframes = target.vframes
-		v.frame = target.frame
-		v.position = target.get_parent().position
-		get_parent().add_child(v)
+

@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 var startscene = "res://_code/Scenes/_TESTING/Testing_Chamber.tscn"
 
