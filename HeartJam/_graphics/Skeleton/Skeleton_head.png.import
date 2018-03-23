@@ -10,7 +10,7 @@ source_file="res://_graphics/Skeleton/Skeleton_head.png"
 source_md5="4d83e3d4bc7253a174016b0ac51d7042"
 
 dest_files=[ "res://.import/Skeleton_head.png-09c4c0521921b8c85733d24fc05714d7.stex" ]
-dest_md5="8fa8bf32a1b9db1df4b7ae03b68f5906"
+dest_md5="86f654e4d61fabafef85453f8a6aa126"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -16,7 +16,7 @@ func _process(delta):
 			get_tree().root.get_node("Paused").queue_free()
 	
 	if(batears): bat_ears()
-	if(vibration): vibration(get_tree().root.get_node("World/ASD/ASD"))
+	#if(vibration): vibration(get_tree().root.get_node("World/ASD/ASD"))
 
 func bat_ears():
 	if(Input.is_action_just_pressed("left_click")):
@@ -25,12 +25,12 @@ func bat_ears():
 		get_tree().root.add_child(b)
 
 func vibration(target):
-	if(Input.is_action_just_pressed("left_click")):
-		var v = load("res://_code/Scenes/Player/VibrationImage.tscn").instance()
-		v.scale = target.scale
-		v.texture = target.texture
-		v.hframes = target.hframes
-		v.vframes = target.vframes
-		v.frame = target.frame
-		v.position = target.get_parent().position
-		get_tree().root.add_child(v)
+	#if(Input.is_action_just_pressed("left_click")):
+	var v = load("res://_code/Scenes/Player/VibrationImage.tscn").instance()
+	v.scale = target.scale
+	v.texture = target.texture
+	v.hframes = target.hframes
+	v.vframes = target.vframes
+	v.frame = target.frame
+	v.position = target.get_parent().position
+	get_tree().root.add_child(v)

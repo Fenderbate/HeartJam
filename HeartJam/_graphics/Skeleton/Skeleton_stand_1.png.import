@@ -10,7 +10,7 @@ source_file="res://_graphics/Skeleton/Skeleton_stand_1.png"
 source_md5="1dcc6aeb2eeb132d562fd4cc5858d3f0"
 
 dest_files=[ "res://.import/Skeleton_stand_1.png-58b79b26be4614f3a61704d187adf86a.stex" ]
-dest_md5="7f9400cbd31acba5d838cabe2b1c4f3d"
+dest_md5="a6653d2cf0b210af07f48c4a11e4ef0a"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

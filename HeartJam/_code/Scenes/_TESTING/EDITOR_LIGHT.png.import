@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Skeleton_stand_2.png-f357a72d27d7388a75d12cbaeae924e9.stex"
+path="res://.import/EDITOR_LIGHT.png-89b7bf2373b8c46914fc8925cd1fb0db.stex"
 
 [deps]
 
-source_file="res://_graphics/Skeleton/Skeleton_stand_2.png"
-source_md5="13ad021fb45efdd8cc910da745254d9d"
+source_file="res://_code/Scenes/_TESTING/EDITOR_LIGHT.png"
+source_md5="47a55f6b4d991bf6be3f325b3a4a1a44"
 
-dest_files=[ "res://.import/Skeleton_stand_2.png-f357a72d27d7388a75d12cbaeae924e9.stex" ]
-dest_md5="36171776a9db801d2efde18b1ae2947f"
+dest_files=[ "res://.import/EDITOR_LIGHT.png-89b7bf2373b8c46914fc8925cd1fb0db.stex" ]
+dest_md5="98284cd45f6b6433d4ce1361583a2386"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -10,6 +10,11 @@ var motion = Vector2()
 var FLOOR_NORMAL = Vector2(0,-1)
 
 var JUMP_HEIGHT = -200
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+var magiceyes = false
+
+var mana = 1000
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -18,11 +23,12 @@ func _ready():
 
 func _physics_process(delta):
 	
+	
+	
 	input()
 	movement(delta)
 	
-	
-	
+	if (Global.batears or Global.vibration or magiceyes) and $ManaTimer.is_stopped(): $ManaTimer.start()
 	
 	update()
 	
@@ -41,15 +47,12 @@ func input():
 	#if dir != 0: $Sprite.scale.x = 2* dir
 	
 	if!is_on_floor() and !$Anim.current_animation.begins_with("jump"):
-		print("jump")
 		match dir:
 			-1: $Anim.play("jump_left")
 			1: $Anim.play("jump_right")
 	elif dir == 0 and is_on_floor() and !$Anim.current_animation.begins_with("stand"):
-		print("stand")
 		$Anim.play("stand")
 	elif dir != 0 and is_on_floor() and !$Anim.current_animation.begins_with("move"):
-		print("move")
 		match dir:
 			-1: $Anim.play("move_left")
 			1: $Anim.play("move_right")
@@ -59,6 +62,7 @@ func input():
 	elif Input.is_action_pressed("vibration"): Global.vibration = true#vibration(get_parent().get_node("ASD/ASD"))
 	else:
 		$MagicEyes.hide()
+		magiceyes = false
 		Global.batears = false
 		Global.vibration = false
 	
@@ -69,8 +73,13 @@ func movement(delta):
 	motion = move_and_slide(motion,FLOOR_NORMAL)
 
 func magic_eyes():
-	if(!$MagicEyes.visible): $MagicEyes.show()
+	if(!$MagicEyes.visible):
+		$MagicEyes.show()
+		magiceyes = true
 	$MagicEyes.position = get_local_mouse_position()
 
 
-
+func _on_ManaTimer_timeout():
+	if magiceyes: mana -= 10
+	elif Global.vibration: mana -= 5
+	elif Global.batears: mana -= 2
