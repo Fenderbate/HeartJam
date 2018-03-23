@@ -1,13 +1,13 @@
-extends Node
+extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var batears = false
+var vibration = false
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	pass
+	
+func _draw():
+	draw_line(Vector2(0,0),Vector2(10,10),Color(1,1,1,1),1)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):

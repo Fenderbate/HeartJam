@@ -2,9 +2,11 @@
 
 [ext_resource path="res://_code/Scenes/GLOBAL/Global.gd" type="Script" id=1]
 
-[node name="Global" type="Node"]
+[node name="Global" type="Node2D" index="0"]
 
 pause_mode = 2
+position = Vector2( 640, 360 )
+scale = Vector2( 20, 11.25 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 

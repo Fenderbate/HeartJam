@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://_code/Scenes/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://_code/Scenes/Player/BatSpot.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -33,7 +34,20 @@ size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 _sections_unfolded = [ "Material" ]
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="ASD" type="Node2D" parent="." index="1"]
+
+position = Vector2( 400, 64 )
+
+[node name="ASD" type="Sprite" parent="ASD" index="0"]
+
+modulate = Color( 0.921875, 0, 1, 1 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 2
+_sections_unfolded = [ "Animation", "Visibility" ]
+
+[node name="Terrain" type="Sprite" parent="." index="2"]
 
 material = SubResource( 1 )
 scale = Vector2( 20, 11.25 )
@@ -41,9 +55,20 @@ texture = ExtResource( 1 )
 centered = false
 _sections_unfolded = [ "Material", "Offset", "Visibility" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
+[node name="Creature" type="Sprite" parent="." index="3"]
 
-position = Vector2( 640, 720 )
+modulate = Color( 0.265625, 1, 0, 1 )
+light_mask = 2
+material = SubResource( 1 )
+position = Vector2( 464, 128 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+centered = false
+_sections_unfolded = [ "Material", "Offset", "Visibility" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="4"]
+
+position = Vector2( 640, 336 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -57,8 +82,32 @@ bounce = 0.0
 position = Vector2( 0, -16 )
 shape = SubResource( 2 )
 
-[node name="Player" parent="." index="3" instance=ExtResource( 2 )]
+[node name="StaticBody2D2" type="StaticBody2D" parent="." index="5"]
 
-position = Vector2( 128, 608 )
+position = Vector2( 207.335, 891.698 )
+rotation = -1.5708
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Player" parent="." index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 128, 240 )
+
+[node name="BatSpot" parent="." index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 528, 192 )
+range_item_cull_mask = 6
+_sections_unfolded = [ "Range", "Visibility" ]
 
 
