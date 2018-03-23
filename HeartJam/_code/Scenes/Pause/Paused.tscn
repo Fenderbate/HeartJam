@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://_code/Scenes/Pause/Paused.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://_code/Scenes/Menu/Menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [node name="Paused" type="Control"]
 
@@ -40,16 +41,46 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="BackToMenu" type="TextureButton" parent="." index="1"]
+[node name="Menu" parent="." index="1" instance=ExtResource( 2 )]
+
+editor/display_folded = true
+margin_left = 16.0
+margin_top = 64.0
+margin_right = 1296.0
+margin_bottom = 784.0
+
+[node name="Start" parent="Menu" index="0"]
+
+visible = false
+
+[node name="Options" parent="Menu" index="1"]
+
+margin_top = 32.0
+margin_bottom = 96.0
+
+[node name="Exit" parent="Menu" index="2"]
+
+visible = false
+
+[node name="Resolution" parent="Menu/Options_Panel" index="1"]
+
+text = "1024x576"
+selected = 0
+
+[node name="Credits" parent="Menu" index="5"]
+
+visible = false
+
+[node name="BackToMenu" type="TextureButton" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1200.0
-margin_top = 16.0
-margin_right = 1264.0
-margin_bottom = 80.0
+margin_left = 80.0
+margin_top = 208.0
+margin_right = 144.0
+margin_bottom = 272.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -61,10 +92,11 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 2 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
 _sections_unfolded = [ "Textures" ]
 
 [connection signal="button_down" from="BackToMenu" to="." method="_on_BackToMenu_button_down"]
 
 
+[editable path="Menu"]

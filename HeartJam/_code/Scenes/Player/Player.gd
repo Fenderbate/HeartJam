@@ -14,11 +14,19 @@ func _ready():
 
 func _physics_process(delta):
 	
+	update()
+	
 	$MagicEyes.position = get_local_mouse_position()
 	
 	input()
 	movement(delta)
+	
+	for x in get_slide_count():
+		print(get_slide_collision(x).position)
+	
 
+func _draw():
+	pass
 
 func input():
 	#if Input.is_action_just_pressed("ui_cancel"): 
