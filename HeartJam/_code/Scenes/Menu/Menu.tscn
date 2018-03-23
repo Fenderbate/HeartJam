@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://_code/Scenes/Menu/Menu.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
-[node name="Menu" type="Control" index="0"]
+[node name="Menu" type="Control"]
 
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -16,7 +18,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Rect" ]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="Start" type="TextureButton" parent="." index="0"]
 
@@ -39,8 +42,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="Options" type="TextureButton" parent="." index="1"]
@@ -64,8 +67,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="Exit" type="TextureButton" parent="." index="2"]
@@ -89,13 +92,14 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="Options_Panel" type="Control" parent="." index="3"]
 
 editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -246,11 +250,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-min_value = 0.0
-max_value = 100.0
+min_value = -66.0
+max_value = 0.0
 step = 1.0
 page = 0.0
-value = 100.0
+value = 0.0
 exp_edit = false
 rounded = true
 editable = true
@@ -298,11 +302,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-min_value = 0.0
-max_value = 100.0
+min_value = -66.0
+max_value = 0.0
 step = 1.0
 page = 0.0
-value = 100.0
+value = 0.0
 exp_edit = false
 rounded = true
 editable = true
@@ -350,11 +354,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-min_value = 0.0
-max_value = 100.0
+min_value = -66.0
+max_value = 0.0
 step = 1.0
 page = 0.0
-value = 100.0
+value = 0.0
 exp_edit = false
 rounded = true
 editable = true
@@ -362,7 +366,124 @@ tick_count = 0
 ticks_on_borders = false
 focus_mode = 2
 
-[node name="Credits" type="Label" parent="." index="4"]
+[node name="Save" type="TextureButton" parent="Options_Panel" index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 64.0
+margin_top = 352.0
+margin_right = 128.0
+margin_bottom = 416.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Exit_Game" type="Panel" parent="." index="4"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 448.0
+margin_top = 272.0
+margin_right = 832.0
+margin_bottom = 400.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Text" type="Label" parent="Exit_Game" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 192.0
+margin_bottom = 24.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Close the game?"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Yes" type="TextureButton" parent="Exit_Game" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_top = 48.0
+margin_right = 144.0
+margin_bottom = 112.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="No" type="TextureButton" parent="Exit_Game" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 240.0
+margin_top = 48.0
+margin_right = 304.0
+margin_bottom = 112.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Credits" type="Label" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -383,5 +504,25 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[connection signal="button_down" from="Start" to="." method="_on_Start_button_down"]
+
+[connection signal="button_down" from="Options" to="." method="_on_Options_button_down"]
+
+[connection signal="button_down" from="Exit" to="." method="_on_Exit_button_down"]
+
+[connection signal="item_selected" from="Options_Panel/Resolution" to="." method="_on_Resolution_item_selected"]
+
+[connection signal="toggled" from="Options_Panel/VSync" to="." method="_on_VSync_toggled"]
+
+[connection signal="value_changed" from="Options_Panel/MasterSound" to="." method="_on_MasterSound_value_changed"]
+
+[connection signal="value_changed" from="Options_Panel/Sound" to="." method="_on_Sound_value_changed"]
+
+[connection signal="value_changed" from="Options_Panel/Music" to="." method="_on_Music_value_changed"]
+
+[connection signal="button_down" from="Exit_Game/Yes" to="." method="_on_Yes_button_down"]
+
+[connection signal="button_down" from="Exit_Game/No" to="." method="_on_No_button_down"]
 
 
