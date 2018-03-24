@@ -1,5 +1,13 @@
 extends Control
 
+var step = [
+preload("res://_sounds/step_1.wav"),
+preload("res://_sounds/step_2.wav"),
+preload("res://_sounds/step_3.wav"),
+preload("res://_sounds/step_4.wav"),
+preload("res://_sounds/step_5.wav")
+]
+
 var batears = false
 var vibration = false
 

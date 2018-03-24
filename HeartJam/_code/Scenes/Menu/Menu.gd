@@ -3,9 +3,10 @@ extends CanvasLayer
 var startscene = "res://_code/Scenes/_TESTING/Testing_Chamber.tscn"
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+	$Options_Panel/MasterSound.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	$Options_Panel/Sound.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound"))
+	$Options_Panel/Music.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
+	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),value)
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

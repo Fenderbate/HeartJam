@@ -1,20 +1,20 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://_code/Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://default_canvasitemmaterial.tres" type="Material" id=2]
 [ext_resource path="res://_graphics/Player/Player_stand.png" type="Texture" id=3]
 [ext_resource path="res://_code/Scenes/_TESTING/light.png" type="Texture" id=4]
 [ext_resource path="res://_graphics/Player/Player_jump.png" type="Texture" id=5]
-[ext_resource path="res://_graphics/Player/Player_move_1.png" type="Texture" id=6]
-[ext_resource path="res://_graphics/Player/Player_move_3.png" type="Texture" id=7]
-[ext_resource path="res://_graphics/Player/Player_move_4.png" type="Texture" id=8]
+[ext_resource path="res://_graphics/Player/Player_move_3.png" type="Texture" id=6]
+[ext_resource path="res://_graphics/Player/Player_move_4.png" type="Texture" id=7]
+[ext_resource path="res://_graphics/Player/Player_move_1.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 17, 30 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 
 resource_name = "jump_left"
 length = 0.01
@@ -57,7 +57,7 @@ tracks/2/keys = {
 "values": [ Vector2( -2, 2 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 
 resource_name = "jump_right"
 length = 0.01
@@ -100,9 +100,8 @@ tracks/2/keys = {
 "values": [ Vector2( 2, 2 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource_name = "move_left"
 length = 0.8
 loop = true
 step = 0.05
@@ -113,10 +112,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ]
+"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:offset")
@@ -125,7 +124,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.8 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -0.5, -2 ), Vector2( -0.5, -2 ) ]
@@ -137,15 +136,31 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.8 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -2, 2 ), Vector2( -2, 2 ) ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "step" ],
+"method": "playsound"
+}, {
+"args": [ "step" ],
+"method": "playsound"
+} ]
+}
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=5]
 
-resource_name = "move_right"
 length = 0.8
 loop = true
 step = 0.05
@@ -156,10 +171,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ]
+"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:offset")
@@ -168,7 +183,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.8 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -0.5, -2 ), Vector2( -0.5, -2 ) ]
@@ -180,15 +195,31 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.8 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 2, 2 ), Vector2( 2, 2 ) ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "step" ],
+"method": "playsound"
+}, {
+"args": [ "step" ],
+"method": "playsound"
+} ]
+}
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 
-resource_name = "stand"
 length = 0.01
 loop = false
 step = 0.1
@@ -229,11 +260,16 @@ tracks/2/keys = {
 "values": [ Vector2( -0.5, 0 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 48, 4 )
+
 [node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 2
-collision_mask = 5
+collision_mask = 1
 collision/safe_margin = 0.001
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "collision" ]
@@ -246,7 +282,7 @@ scale = Vector2( -2, 2 )
 z_index = 10
 texture = ExtResource( 3 )
 offset = Vector2( -0.5, 0 )
-_sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
@@ -312,11 +348,11 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/jump_left = SubResource( 5 )
-anims/jump_right = SubResource( 6 )
-anims/move_left = SubResource( 3 )
-anims/move_right = SubResource( 2 )
-anims/stand = SubResource( 4 )
+anims/jump_left = SubResource( 2 )
+anims/jump_right = SubResource( 3 )
+anims/move_left = SubResource( 4 )
+anims/move_right = SubResource( 5 )
+anims/stand = SubResource( 6 )
 blend_times = [  ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
@@ -333,7 +369,7 @@ limit_smoothed = false
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = false
-smoothing_speed = 5.0
+smoothing_speed = 10.0
 offset_v = 0.0
 offset_h = 0.0
 drag_margin_left = 0.0
@@ -343,7 +379,7 @@ drag_margin_bottom = 0.0
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin" ]
+_sections_unfolded = [ "Drag Margin", "Smoothing" ]
 
 [node name="ManaTimer" type="Timer" parent="." index="6"]
 
@@ -352,6 +388,67 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
+[node name="Speech" type="Label" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -53.0
+margin_top = -63.0
+margin_right = 53.0
+margin_bottom = -32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="SpeechTimer" type="Timer" parent="." index="8"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." index="9"]
+
+stream = null
+volume_db = -20.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Sound"
+area_mask = 1
+
+[node name="Weapon" type="Area2D" parent="." index="10"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon" index="0"]
+
+shape = SubResource( 7 )
+
 [connection signal="timeout" from="ManaTimer" to="." method="_on_ManaTimer_timeout"]
+
+[connection signal="timeout" from="SpeechTimer" to="." method="_on_SpeechTimer_timeout"]
+
+[connection signal="body_entered" from="Weapon" to="." method="_on_Weapon_body_entered"]
 
 

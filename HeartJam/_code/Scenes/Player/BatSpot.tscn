@@ -4,7 +4,7 @@
 [ext_resource path="res://_code/Scenes/Player/BatSpot.gd" type="Script" id=2]
 [ext_resource path="res://_code/Scenes/Player/BatSpot.tres" type="Animation" id=3]
 
-[node name="BatSpot" type="Light2D" index="0"]
+[node name="BatSpot" type="Light2D"]
 
 position = Vector2( 480, 192 )
 enabled = true
