@@ -10,7 +10,7 @@ source_file="res://_graphics/Environment/Torch_1.png"
 source_md5="99f1ff8f7283ce8108a73ed952e70150"
 
 dest_files=[ "res://.import/Torch_1.png-1cff0aadf69ecbff27eaee9313a07cf6.stex" ]
-dest_md5="727dfb87dcbcdd19d489ed6ec985e574"
+dest_md5="c537e7743af32e201b957c854f58ec8d"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

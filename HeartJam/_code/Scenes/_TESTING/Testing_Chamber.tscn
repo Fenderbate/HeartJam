@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://_code/Scenes/_TESTING/EDITOR_LIGHT.png" type="Texture" id=1]
 [ext_resource path="res://_code/Scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://default_canvasitemmaterial.tres" type="Material" id=3]
 [ext_resource path="res://_code/Tilesets/Dungeon.tres" type="TileSet" id=4]
 [ext_resource path="res://_code/Scenes/Skeleton/Skeleton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://_code/Scenes/Torch/Torch.tscn" type="PackedScene" id=6]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 [node name="EDITOR_LIGHT" type="Light2D" parent="." index="0"]
 
@@ -65,5 +66,21 @@ _sections_unfolded = [ "Cell", "Material", "Transform" ]
 [node name="Skeleton" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 400, 256 )
+
+[node name="Torch" parent="." index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 372, 245 )
+
+[node name="Torch2" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 726, 245 )
+
+[node name="Torch3" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 1003, 117 )
+
+[node name="Torch4" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 1225, 55 )
 
 
