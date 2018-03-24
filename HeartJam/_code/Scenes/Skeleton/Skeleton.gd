@@ -45,6 +45,7 @@ func _draw():
 
 func step():
 	if(Global.vibration): Global.vibration($Sprite)
+	if(Global.batears): Global.bat_ears(position)
 
 func _on_Sight_body_entered(body):
 	target = body
