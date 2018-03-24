@@ -19,24 +19,10 @@ pan_pullout = 2.0
 time_pullout_ms = 0.0
 surround = 0.0
 
-[sub_resource type="AudioEffectChorus" id=3]
+[sub_resource type="AudioEffectPanner" id=3]
 
-resource_name = "Chorus"
-voice_count = 2
-dry = 1.0
-wet = 0.5
-voice/1/delay_ms = 15.0
-voice/1/rate_hz = 0.8
-voice/1/depth_ms = 2.0
-voice/1/level_db = 0.0
-voice/1/cutoff_hz = 8000.0
-voice/1/pan = -0.5
-voice/2/delay_ms = 20.0
-voice/2/rate_hz = 1.2
-voice/2/depth_ms = 3.0
-voice/2/level_db = 0.0
-voice/2/cutoff_hz = 8000.0
-voice/2/pan = 0.5
+resource_name = "Panner"
+pan = 0.0
 
 [resource]
 
@@ -63,5 +49,5 @@ bus/2/effect/0/enabled = true
 bus/2/effect/1/effect = SubResource( 2 )
 bus/2/effect/1/enabled = true
 bus/2/effect/2/effect = SubResource( 3 )
-bus/2/effect/2/enabled = false
+bus/2/effect/2/enabled = true
 

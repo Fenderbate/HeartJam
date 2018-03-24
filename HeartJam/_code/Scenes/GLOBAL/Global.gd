@@ -2,6 +2,7 @@ extends Control
 
 var vibimg = preload("res://_code/Scenes/Player/VibrationImage.tscn")
 var bs = preload("res://_code/Scenes/Player/BatSpot.tscn")
+var hit = preload("res://_sounds/Combat/staff_hit.wav")
 
 var step = [
 preload("res://_sounds/Step/step_1.wav"),
@@ -23,8 +24,12 @@ preload("res://_sounds/Bone/bonerattle_3.wav")
 
 ]
 
+var swing = preload("res://_sounds/Combat/swing_wav.wav")
+
 var batears = false
 var vibration = false
+
+var spawn_bat_bubble = false
 
 func _ready():
 	pass
@@ -46,10 +51,11 @@ func bat_ears(pos):
 	var b = bs.instance()
 	randomize()
 	b.position = pos + Vector2(rand_range(-50,50),rand_range(-50,50))
-	get_tree().root.add_child(b)
+	if spawn_bat_bubble:
+		get_tree().root.add_child(b)
+		spawn_bat_bubble = false
 
 func vibration(target):
-	#if(Input.is_action_just_pressed("left_click")):
 	var v = vibimg.instance()
 	v.scale = target.scale
 	v.texture = target.texture
@@ -58,3 +64,6 @@ func vibration(target):
 	v.frame = target.frame
 	v.position = target.get_parent().position
 	get_tree().root.add_child(v)
+
+func _on_BatEarsTimer_timeout():
+	spawn_bat_bubble = true

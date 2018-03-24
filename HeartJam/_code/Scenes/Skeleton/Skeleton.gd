@@ -15,14 +15,14 @@ var spd = 100
 var moving = false
 
 var dmg = 1
-var health = 1
+var health = 3
 
 func _ready():
 	$Anim.play("stand")
 
 func _physics_process(delta):
 	
-	
+	if(Global.batears): Global.bat_ears(position)
 	
 	update()
 	
@@ -44,6 +44,8 @@ func look():
 			pass
 		else:
 			moving = false
+			if $Anim.current_animation != "stand":
+				$Anim.play("stand")
 			pass#do_draw = false
 
 func attack():
@@ -76,11 +78,9 @@ func step():
 		$Sound.stream = Global.bone[rand_range(0,Global.bone.size())]
 		$Sound.play()
 	if(Global.vibration): Global.vibration($Sprite)
-	if(Global.batears): Global.bat_ears(position)
 
 func _on_Sight_body_entered(body):
 	target = body
-
 
 func _on_Sight_body_exited(body):
 	target = null

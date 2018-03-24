@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/skeleton_death.wav-f5a938290c3c28225c83b70f9ea9b76e.sample"
+
+[deps]
+
+source_file="res://_sounds/Combat/skeleton_death.wav"
+source_md5="fd475cd2e0f5937aa1d75f0e9f1edf08"
+
+dest_files=[ "res://.import/skeleton_death.wav-f5a938290c3c28225c83b70f9ea9b76e.sample" ]
+dest_md5="1cf469f9999babbc150739f9e4dbcc66"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

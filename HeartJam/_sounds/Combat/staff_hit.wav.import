@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/staff_hit.wav-e902a4a6071f839ffcb080070a5d204f.sample"
+
+[deps]
+
+source_file="res://_sounds/Combat/staff_hit.wav"
+source_md5="d3f3e98f9bfd5142379d51a0d84c6f9b"
+
+dest_files=[ "res://.import/staff_hit.wav-e902a4a6071f839ffcb080070a5d204f.sample" ]
+dest_md5="b52dda2aa79d58f11b77da33d354b4ee"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

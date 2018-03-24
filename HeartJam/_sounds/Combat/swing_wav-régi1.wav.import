@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/swing_wav-régi1.wav-00fdc709f20f031469ea0f041fc9d130.sample"
+
+[deps]
+
+source_file="res://_sounds/Combat/swing_wav-régi1.wav"
+source_md5="2a74e8ebeb0c765bc099484c535616d8"
+
+dest_files=[ "res://.import/swing_wav-régi1.wav-00fdc709f20f031469ea0f041fc9d130.sample" ]
+dest_md5="cf878cc5039ad2e2c44cc02aa7d3df2d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiled.png-dbbabe58e4f927769540a522a2073689.stex"
+path="res://.import/Torch_2.png-c4a0cad05f7de24215704ff2921fcbee.stex"
 
 [deps]
 
-source_file="res://addons/vnen.tiled_importer/tiled.png"
-source_md5="cf7cf7bceb2edb4a3162d7bcf2926718"
+source_file="res://_graphics/Environment/Torch_2.png"
+source_md5="9dd2b3321643283404d39d5ff19aa789"
 
-dest_files=[ "res://.import/tiled.png-dbbabe58e4f927769540a522a2073689.stex" ]
-dest_md5="f927448f84e78b20272cc8bc73c362e6"
+dest_files=[ "res://.import/Torch_2.png-c4a0cad05f7de24215704ff2921fcbee.stex" ]
+dest_md5="f5219b37996d2060cdb0797037385eda"
 
 [params]
 
