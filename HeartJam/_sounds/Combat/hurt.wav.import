@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hurt.wav-43daf24ff96a431806205db04d330383.sample"
+
+[deps]
+
+source_file="res://_sounds/Combat/hurt.wav"
+source_md5="2c1d21e452784d664fe0a92b69b44099"
+
+dest_files=[ "res://.import/hurt.wav-43daf24ff96a431806205db04d330383.sample" ]
+dest_md5="9f40f9f28f8c47fddbc9a58828552a12"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

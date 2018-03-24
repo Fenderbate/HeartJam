@@ -15,12 +15,12 @@ var FLOOR_NORMAL = Vector2(0,-1)
 var JUMP_HEIGHT = -300
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-var magiceyes = false
 
 var health = 10
 var max_mana = float(1000)
 var mana = float(1000)
 
+var can_change_text = true
 var wallhit =[
 "ouch...",
 "uhh...",
@@ -44,18 +44,18 @@ false # 0%
 ]
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+	if(!visible):show()
 
 func _physics_process(delta):
 	
 	manastatus()
 	
+	magic_eyes()
+	
 	input()
 	movement(delta)
 	
-	if (Global.batears or Global.vibration or magiceyes) and $ManaTimer.is_stopped(): $ManaTimer.start()
+	if (Global.batears or Global.vibration or Global.magiceyes) and $ManaTimer.is_stopped(): $ManaTimer.start()
 	
 	update()
 	
@@ -68,7 +68,8 @@ func _draw():
 	#draw_texture(t,Vector2(0,-20))
 
 func input():
-	if Input.is_action_just_pressed("space"): $Anim.play("attack")
+	if Input.is_action_just_pressed("space"):
+		if !$Anim.current_animation == "attack": $Anim.play("attack")
 	dir = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 	if dir != 0:
 		$Sprite.scale.x = 2*dir
@@ -82,14 +83,9 @@ func input():
 	elif dir == 0 and is_on_floor() and $Anim.current_animation != "stand" and $Anim.current_animation !="attack":
 		$Anim.play("stand")
 	
-	if Input.is_action_pressed("magic_eyes") and mana >= 10: magic_eyes()
-	elif Input.is_action_pressed("bat_ears") and mana >= 2: Global.batears = true
-	elif Input.is_action_pressed("vibration") and mana >= 5: Global.vibration = true
-	else:
-		$MagicEyes.hide()
-		magiceyes = false
-		Global.batears = false
-		Global.vibration = false
+	if Input.is_action_just_pressed("magic_eyes") and mana >= 10: Global.magiceyes = !Global.magiceyes
+	if Input.is_action_just_pressed("bat_ears") and mana >= 2: Global.batears = !Global.batears
+	if Input.is_action_just_pressed("vibration") and mana >= 5: Global.vibration = !Global.vibration
 	
 
 func movement(delta):
@@ -106,25 +102,36 @@ func movement(delta):
 		return
 
 func magic_eyes():
-	if(!$MagicEyes.visible):
+	if Global.magiceyes == true and !$MagicEyes.visible:
+		$Sight.hide()
 		$MagicEyes.show()
-		magiceyes = true
+	elif Global.magiceyes == false and $MagicEyes.visible:
+		$Sight.show()
+		$MagicEyes.hide()
 	$MagicEyes.look_at(get_global_mouse_position())
 
 func hurt(damage):
 	randomize()
 	say(enemyhit[rand_range(0,enemyhit.size())],1)
+	$Hurt.play()
 	health -= damage
 	if(health <= 0):
-		#ded
+		get_parent().add_child(load("res://_code/Scenes/Game Over/Game_Over.tscn").instance())
 		pass
 
-func say(text, time):
-	$Speech.text = text
-	$SpeechTimer.wait_time = time
-	$SpeechTimer.start()
+func say(text, time, persistent = false):
+	if persistent == true:
+		can_change_text = false
+		$Speech.text = text
+		$SpeechTimer.wait_time = time
+		$SpeechTimer.start()
+	if can_change_text == true:
+		$Speech.text = text
+		$SpeechTimer.wait_time = time
+		$SpeechTimer.start()
 
 func _on_SpeechTimer_timeout():
+	if can_change_text == false: can_change_text = true
 	$Speech.text = ""
 
 func playsound(filename):
@@ -148,7 +155,7 @@ func attack(start):
 	pass
 
 func _on_ManaTimer_timeout():
-	if magiceyes: mana -= 10
+	if Global.magiceyes: mana -= 10
 	elif Global.vibration: mana -= 5
 	elif Global.batears: mana -= 2
 	

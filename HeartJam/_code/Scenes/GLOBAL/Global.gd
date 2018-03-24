@@ -26,6 +26,7 @@ preload("res://_sounds/Bone/bonerattle_3.wav")
 
 var swing = preload("res://_sounds/Combat/swing_wav.wav")
 
+var magiceyes = false
 var batears = false
 var vibration = false
 

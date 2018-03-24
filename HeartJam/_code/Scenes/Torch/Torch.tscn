@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://default_canvasitemmaterial.tres" type="Material" id=1]
 [ext_resource path="res://_graphics/Environment/Torch_1.png" type="Texture" id=2]
 [ext_resource path="res://_graphics/Environment/Torch_2.png" type="Texture" id=3]
-[ext_resource path="res://_code/Scenes/_TESTING/light.png" type="Texture" id=4]
+[ext_resource path="res://unshaded_material.tres" type="Material" id=4]
+[ext_resource path="res://_code/Scenes/_TESTING/light.png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -16,23 +17,27 @@ animations = [ {
 
 [node name="Torch" type="Node2D"]
 
+_sections_unfolded = [ "Material" ]
+
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
 material = ExtResource( 1 )
+position = Vector2( 0, 14 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 1
 playing = true
-_sections_unfolded = [ "Material" ]
+_sections_unfolded = [ "Material", "Transform" ]
 
 [node name="Light2D" type="Light2D" parent="." index="1"]
 
+material = ExtResource( 4 )
 position = Vector2( 0, -10 )
 enabled = true
 editor_only = false
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 offset = Vector2( 0, 0 )
-texture_scale = 0.08
+texture_scale = 0.16
 color = Color( 1, 1, 1, 1 )
 energy = 1.0
 mode = 0
@@ -49,5 +54,6 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
+_sections_unfolded = [ "Material", "Transform" ]
 
 

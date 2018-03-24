@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://_graphics/Tilesets/Tileset_1.png" type="Texture" id=1]
+[ext_resource path="res://_graphics/Tilesets/Tileset_2.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -24,10 +24,25 @@ extents = Vector2( 16, 16 )
 
 [node name="Tileset" type="Node"]
 
-[node name="Wall" type="Sprite" parent="." index="0"]
+[node name="Reference" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.901306, 0.425781, 1, 1 )
+texture = ExtResource( 1 )
+centered = false
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="BG" type="Sprite" parent="." index="1"]
+
+position = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Wall" type="Sprite" parent="." index="2"]
 
 editor/display_folded = true
-position = Vector2( 16, 16 )
+position = Vector2( 48, 48 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 32, 32, 32, 32 )
@@ -48,16 +63,160 @@ _sections_unfolded = [ "Transform" ]
 
 shape = SubResource( 1 )
 
-[node name="Wall_bottom" type="Sprite" parent="." index="1"]
+[node name="Chain_1" type="Sprite" parent="." index="3"]
+
+position = Vector2( 72, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 16, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Chain_2" type="Sprite" parent="." index="4"]
+
+position = Vector2( 88, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 80, 0, 16, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Chain_3" type="Sprite" parent="." index="5"]
+
+position = Vector2( 104, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 0, 16, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Chain_4" type="Sprite" parent="." index="6"]
+
+position = Vector2( 120, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 112, 0, 16, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Chain_5" type="Sprite" parent="." index="7"]
+
+position = Vector2( 176, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 0, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="BG_Wall_1" type="Sprite" parent="." index="8"]
+
+position = Vector2( 208, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="BG_Wall_2" type="Sprite" parent="." index="9"]
+
+position = Vector2( 240, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 0, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="BG_Wall_3" type="Sprite" parent="." index="10"]
+
+position = Vector2( 272, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 0, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="BG_Wall_4" type="Sprite" parent="." index="11"]
+
+position = Vector2( 304, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 288, 0, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="BG_Wall_5" type="Sprite" parent="." index="12"]
+
+position = Vector2( 336, 16 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 0, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Spikes_1" type="Sprite" parent="." index="13"]
+
+position = Vector2( 80, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 32, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Spikes_2" type="Sprite" parent="." index="14"]
+
+position = Vector2( 112, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 32, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Spikes_3" type="Sprite" parent="." index="15"]
+
+position = Vector2( 144, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 32, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Vase" type="Sprite" parent="." index="16"]
+
+position = Vector2( 176, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 32, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Barrel" type="Sprite" parent="." index="17"]
+
+position = Vector2( 208, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 32, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Bridge" type="Sprite" parent="." index="18"]
+
+position = Vector2( 304, 64 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 32, 96, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Bridge_holder_left" type="Sprite" parent="." index="19"]
+
+position = Vector2( 240, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 32, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Bridge_holder_right" type="Sprite" parent="." index="20"]
+
+position = Vector2( 368, 48 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 352, 32, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="Wall_bottom_1" type="Sprite" parent="." index="21"]
 
 editor/display_folded = true
-position = Vector2( 16, 48 )
+position = Vector2( 16, 80 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 64, 32, 32 )
 _sections_unfolded = [ "Material", "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall_bottom" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall_bottom_1" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -67,20 +226,20 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_bottom/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_bottom_1/StaticBody2D" index="0"]
 
 shape = SubResource( 1 )
 
-[node name="Wall_bottom2" type="Sprite" parent="." index="2"]
+[node name="Wall_bottom_2" type="Sprite" parent="." index="22"]
 
 editor/display_folded = true
-position = Vector2( 48, 48 )
+position = Vector2( 48, 80 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 32, 64, 32, 32 )
 _sections_unfolded = [ "Material", "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall_bottom2" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall_bottom_2" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -91,21 +250,21 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_bottom2/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_bottom_2/StaticBody2D" index="0"]
 
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wall_bottom3" type="Sprite" parent="." index="3"]
+[node name="Wall_bottom_3" type="Sprite" parent="." index="23"]
 
 editor/display_folded = true
-position = Vector2( 80, 48 )
+position = Vector2( 80, 80 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 64, 64, 32, 32 )
 _sections_unfolded = [ "Material", "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall_bottom3" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall_bottom_3" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -115,20 +274,20 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_bottom3/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_bottom_3/StaticBody2D" index="0"]
 
 shape = SubResource( 3 )
 
-[node name="Wall_bottom4" type="Sprite" parent="." index="4"]
+[node name="Wall_bottom_4" type="Sprite" parent="." index="24"]
 
 editor/display_folded = true
-position = Vector2( 112, 48 )
+position = Vector2( 112, 80 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 96, 64, 32, 32 )
 _sections_unfolded = [ "Material", "Region" ]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall_bottom4" index="0"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall_bottom_4" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -138,16 +297,141 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_bottom4/StaticBody2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_bottom_4/StaticBody2D" index="0"]
 
 shape = SubResource( 4 )
 
-[node name="Ground" type="Sprite" parent="." index="5"]
+[node name="Alga_Wall_bottom_1" type="Sprite" parent="." index="25"]
 
-position = Vector2( 16, 80 )
+editor/display_folded = true
+position = Vector2( 144, 80 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 64, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Alga_Wall_bottom_1" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Alga_Wall_bottom_1/StaticBody2D" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="Alga_Wall_bottom_2" type="Sprite" parent="." index="26"]
+
+editor/display_folded = true
+position = Vector2( 176, 80 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 64, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Alga_Wall_bottom_2" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Alga_Wall_bottom_2/StaticBody2D" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="Alga_Wall_bottom_3" type="Sprite" parent="." index="27"]
+
+editor/display_folded = true
+position = Vector2( 208, 80 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 64, 32, 32 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Alga_Wall_bottom_3" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Alga_Wall_bottom_3/StaticBody2D" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="Empty" type="Sprite" parent="." index="28"]
+
+position = Vector2( 16, 112 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 96, 32, 32 )
 _sections_unfolded = [ "Material", "Region" ]
+
+[node name="Rock" type="Sprite" parent="." index="29"]
+
+position = Vector2( 48, 112 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 96, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Broken_wase" type="Sprite" parent="." index="30"]
+
+position = Vector2( 80, 112 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 96, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sewer_1" type="Sprite" parent="." index="31"]
+
+position = Vector2( 128, 112 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 96, 64, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sewer_2" type="Sprite" parent="." index="32"]
+
+position = Vector2( 192, 112 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 96, 64, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sewer_3" type="Sprite" parent="." index="33"]
+
+position = Vector2( 192, 112 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 96, 64, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Alga" type="Sprite" parent="." index="34"]
+
+position = Vector2( 240, 112 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 224, 96, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sword" type="Sprite" parent="." index="35"]
+
+position = Vector2( 272, 112 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 96, 32, 32 )
+_sections_unfolded = [ "Region" ]
 
 

@@ -13,6 +13,8 @@ var dir = 0
 var lastdir = 0
 var spd = 100
 var moving = false
+var gravity = 200
+var motion = Vector2()
 
 var dmg = 1
 var health = 3
@@ -22,6 +24,9 @@ func _ready():
 
 func _physics_process(delta):
 	
+	motion.y += gravity*delta*2
+	motion = move_and_slide(motion,Vector2(0,1))
+	
 	if(Global.batears): Global.bat_ears(position)
 	
 	update()
@@ -29,6 +34,7 @@ func _physics_process(delta):
 	if target != null: look()
 	else:
 		moving = false
+		motion.x = 0
 		if $Anim.current_animation != "stand":
 			$Anim.play("stand")
 
@@ -44,6 +50,7 @@ func look():
 			pass
 		else:
 			moving = false
+			motion.x = 0
 			if $Anim.current_animation != "stand":
 				$Anim.play("stand")
 			pass#do_draw = false
@@ -54,7 +61,7 @@ func attack():
 	else: dir = -1
 	
 	if position.distance_to(hit_pos) > 20:
-		move_and_slide(Vector2(spd*dir,0),Vector2(0,1))
+		motion.x = spd*dir
 		if !$Anim.current_animation.begins_with("move"):
 			match dir:
 				1: $Anim.play("move_right")
@@ -66,7 +73,8 @@ func attack():
 					1: $Anim.play("move_right")
 					-1: $Anim.play("move_left")
 	else:
-		if $Anim.current_animation != "attack" or !$Anim.is_playing(): $Anim.play("attack")
+		motion.x = 0
+		if ($Anim.current_animation != "attack" or !$Anim.is_playing()) and ($Stun.is_stopped()): $Anim.play("attack")
 		#if $Attack.is_stopped(): $Attack.start()
 	
 
@@ -86,9 +94,11 @@ func _on_Sight_body_exited(body):
 	target = null
 
 func hit():
+	if(Global.vibration): Global.vibration($Sprite)
 	target.hurt(dmg)
 	
 func hurt(dmg):
+	$Stun.start()
 	health -= dmg
 	if health <= 0:
 		var s = skull.instance()
@@ -99,4 +109,5 @@ func hurt(dmg):
 
 func _on_Attack_timeout():
 	$Anim.play("attack")
+	
 	

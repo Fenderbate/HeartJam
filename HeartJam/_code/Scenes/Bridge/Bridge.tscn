@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://_code/Scenes/Bridge/Bridge.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 96, 32 )
+
+[node name="Bridge" type="StaticBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+position = Vector2( 0, -32 )
+build_mode = 0
+polygon = PoolVector2Array( 96, 0, 96, 40, -96, 40, -96, 0, -32, 16, 32, 16 )
+
+[node name="Check" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Check" index="0"]
+
+position = Vector2( 0, -64 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Check" to="." method="_on_Check_body_entered"]
+
+[connection signal="body_exited" from="Check" to="." method="_on_Check_body_exited"]
+
+

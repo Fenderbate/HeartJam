@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://_code/Scenes/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://_code/Scenes/_TESTING/vision.png" type="Texture" id=2]
+[ext_resource path="res://_code/Scenes/_TESTING/vision_mask.png" type="Texture" id=2]
 [ext_resource path="res://default_canvasitemmaterial.tres" type="Material" id=3]
 [ext_resource path="res://_graphics/Player/Player_stand.png" type="Texture" id=4]
-[ext_resource path="res://_code/Scenes/_TESTING/light.png" type="Texture" id=5]
+[ext_resource path="res://_code/Scenes/_TESTING/player_light.png" type="Texture" id=5]
 [ext_resource path="res://_graphics/Player/Player_attack_3.png" type="Texture" id=6]
 [ext_resource path="res://_graphics/Player/Player_attack_4.png" type="Texture" id=7]
 [ext_resource path="res://_graphics/Player/Player_jump.png" type="Texture" id=8]
@@ -12,7 +12,8 @@
 [ext_resource path="res://_graphics/Player/Player_move_4.png" type="Texture" id=10]
 [ext_resource path="res://_graphics/Player/Player_move_1.png" type="Texture" id=11]
 [ext_resource path="res://_sounds/Step/step_1.wav" type="AudioStream" id=12]
-[ext_resource path="res://_sounds/Combat/staff_hit.wav" type="AudioStream" id=13]
+[ext_resource path="res://_sounds/Combat/hurt.wav" type="AudioStream" id=13]
+[ext_resource path="res://_sounds/Combat/staff_hit.wav" type="AudioStream" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -179,6 +180,12 @@ tracks/1/keys = {
 "values": [ Vector2( -0.5, 0 ) ]
 }
 
+[sub_resource type="CanvasItemMaterial" id=9]
+
+render_priority = 0
+blend_mode = 0
+light_mode = 1
+
 [sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
@@ -195,7 +202,6 @@ _sections_unfolded = [ "Collision", "collision" ]
 
 [node name="MagicEyes" type="Light2D" parent="." index="0"]
 
-visible = false
 position = Vector2( 0, -13 )
 enabled = true
 editor_only = false
@@ -204,7 +210,7 @@ offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 1, 1, 1, 1 )
 energy = 1.0
-mode = 0
+mode = 3
 range_height = 0.0
 range_z_min = -1024
 range_z_max = 1024
@@ -218,7 +224,7 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
-_sections_unfolded = [ "Range" ]
+_sections_unfolded = [ "Range", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
@@ -238,14 +244,15 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sight" type="Light2D" parent="." index="3"]
 
+position = Vector2( 0, -13 )
 enabled = true
 editor_only = false
 texture = ExtResource( 5 )
 offset = Vector2( 0, 0 )
-texture_scale = 0.25
+texture_scale = 1.0
 color = Color( 1, 1, 1, 1 )
 energy = 1.0
-mode = 0
+mode = 3
 range_height = 0.0
 range_z_min = -1024
 range_z_max = 1024
@@ -259,7 +266,7 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
-_sections_unfolded = [ "Range" ]
+_sections_unfolded = [ "Range", "Transform" ]
 
 [node name="Anim" type="AnimationPlayer" parent="." index="4"]
 
@@ -309,13 +316,14 @@ autostart = false
 
 [node name="Speech" type="Label" parent="." index="7"]
 
+material = SubResource( 9 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -53.0
-margin_top = -63.0
-margin_right = 53.0
+margin_left = -127.0
+margin_top = -95.0
+margin_right = 128.0
 margin_bottom = -32.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -329,6 +337,7 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Material" ]
 
 [node name="SpeechTimer" type="Timer" parent="." index="8"]
 
@@ -347,7 +356,17 @@ attenuation = 1.0
 bus = "Sound"
 area_mask = 1
 
-[node name="Weapon" type="Area2D" parent="." index="10"]
+[node name="Hurt" type="AudioStreamPlayer2D" parent="." index="10"]
+
+stream = ExtResource( 13 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Sound"
+area_mask = 1
+
+[node name="Weapon" type="Area2D" parent="." index="11"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -362,7 +381,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="Weapon" index="0"]
 
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
 volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
