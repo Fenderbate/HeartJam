@@ -1,18 +1,68 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://_code/Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://default_canvasitemmaterial.tres" type="Material" id=2]
 [ext_resource path="res://_graphics/Player/Player_stand.png" type="Texture" id=3]
 [ext_resource path="res://_code/Scenes/_TESTING/light.png" type="Texture" id=4]
-[ext_resource path="res://_graphics/Player/Player_jump.png" type="Texture" id=5]
-[ext_resource path="res://_graphics/Player/Player_move_3.png" type="Texture" id=6]
-[ext_resource path="res://_graphics/Player/Player_move_4.png" type="Texture" id=7]
-[ext_resource path="res://_graphics/Player/Player_move_1.png" type="Texture" id=8]
+[ext_resource path="res://_graphics/Player/Player_attack_3.png" type="Texture" id=5]
+[ext_resource path="res://_graphics/Player/Player_attack_4.png" type="Texture" id=6]
+[ext_resource path="res://_graphics/Player/Player_jump.png" type="Texture" id=7]
+[ext_resource path="res://_graphics/Player/Player_move_3.png" type="Texture" id=8]
+[ext_resource path="res://_graphics/Player/Player_move_4.png" type="Texture" id=9]
+[ext_resource path="res://_graphics/Player/Player_move_1.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 17, 30 )
+
+[sub_resource type="Animation" id=8]
+
+resource_name = "attack"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.5, -2 ), Vector2( -1.5, -2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 6 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "attack"
+}, {
+"args": [ false ],
+"method": "attack"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 
@@ -30,7 +80,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:offset")
@@ -73,7 +123,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 7 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:offset")
@@ -115,7 +165,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ]
+"values": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:offset")
@@ -174,7 +224,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ]
+"values": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:offset")
@@ -236,24 +286,12 @@ tracks/0/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
+tracks/1/path = NodePath("Sprite:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -2, 2 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -263,7 +301,7 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
-extents = Vector2( 48, 4 )
+extents = Vector2( 17, 23 )
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -348,6 +386,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
+anims/attack = SubResource( 8 )
 anims/jump_left = SubResource( 2 )
 anims/jump_right = SubResource( 3 )
 anims/move_left = SubResource( 4 )
@@ -439,11 +478,19 @@ collision_layer = 0
 collision_mask = 4
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon" index="0"]
+[node name="Left" type="CollisionShape2D" parent="Weapon" index="0"]
 
+position = Vector2( -17, 5 )
 shape = SubResource( 7 )
+disabled = true
+
+[node name="Right" type="CollisionShape2D" parent="Weapon" index="1"]
+
+position = Vector2( 17, 5 )
+shape = SubResource( 7 )
+disabled = true
 
 [connection signal="timeout" from="ManaTimer" to="." method="_on_ManaTimer_timeout"]
 

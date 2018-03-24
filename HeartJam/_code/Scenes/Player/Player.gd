@@ -6,6 +6,7 @@ var s_jump = preload("res://_graphics/Player/Player_jump.png")
 
 
 var dir = 0
+var lastdir = 0
 var spd = 200
 var gravity = 200
 var motion = Vector2()
@@ -57,7 +58,9 @@ func _draw():
 	#draw_texture(t,Vector2(0,-20))
 
 func input():
+	if Input.is_action_just_pressed("space"): $Anim.play("attack")
 	dir = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+	if dir != 0: lastdir = dir
 	if Input.is_action_just_pressed("up") and is_on_floor(): motion.y = JUMP_HEIGHT
 	
 	#if dir != 0: $Sprite.scale.x = 2* dir
@@ -66,7 +69,7 @@ func input():
 		match dir:
 			-1: $Anim.play("jump_left")
 			1: $Anim.play("jump_right")
-	elif dir == 0 and is_on_floor() and !$Anim.current_animation.begins_with("stand"):
+	elif dir == 0 and is_on_floor() and !$Anim.current_animation.begins_with("stand") and !$Anim.current_animation.begins_with("attack"):
 		$Anim.play("stand")
 	elif dir != 0 and is_on_floor() and !$Anim.current_animation.begins_with("move"):
 		match dir:
@@ -121,7 +124,16 @@ func playsound(filename):
 		$Audio.stream = Global.step[rand_range(0,Global.step.size())]
 		$Audio.play()
 
-
+func attack(start):
+	if start:
+		match lastdir:
+			1:$Weapon/Right.disabled = false
+			-1:$Weapon/Left.disabled = false
+	else:
+		$Weapon/Right.disabled = true
+		$Weapon/Left.disabled = true
+	
+	pass
 
 func _on_ManaTimer_timeout():
 	if magiceyes: mana -= 10

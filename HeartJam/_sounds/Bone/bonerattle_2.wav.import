@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bonerattle_2.wav-2f750729270de0c548d566e94242607f.sample"
+
+[deps]
+
+source_file="res://_sounds/Bone/bonerattle_2.wav"
+source_md5="1f68b34e2c1f4e9fe0592fd92fdc94fb"
+
+dest_files=[ "res://.import/bonerattle_2.wav-2f750729270de0c548d566e94242607f.sample" ]
+dest_md5="19ca7b91f2a4c6a057cfa1c1d6df4fff"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

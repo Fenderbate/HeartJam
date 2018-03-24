@@ -14,7 +14,7 @@ render_priority = 0
 blend_mode = 0
 light_mode = 2
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 [node name="EDITOR_LIGHT" type="Light2D" parent="." index="0"]
 

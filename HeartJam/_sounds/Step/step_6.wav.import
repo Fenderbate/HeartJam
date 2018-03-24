@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/step_6.wav-15099e84bb7ade42b7a9168763511c63.sample"
+
+[deps]
+
+source_file="res://_sounds/Step/step_6.wav"
+source_md5="fd39233d655b63b4cf5f5a85440ea972"
+
+dest_files=[ "res://.import/step_6.wav-15099e84bb7ade42b7a9168763511c63.sample" ]
+dest_md5="d3f2eecfce8a37689e30d8879e720bc5"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,11 +1,26 @@
 extends Control
 
+var vibimg = preload("res://_code/Scenes/Player/VibrationImage.tscn")
+var bs = preload("res://_code/Scenes/Player/BatSpot.tscn")
+
 var step = [
-preload("res://_sounds/step_1.wav"),
-preload("res://_sounds/step_2.wav"),
-preload("res://_sounds/step_3.wav"),
-preload("res://_sounds/step_4.wav"),
-preload("res://_sounds/step_5.wav")
+preload("res://_sounds/Step/step_1.wav"),
+preload("res://_sounds/Step/step_2.wav"),
+preload("res://_sounds/Step/step_3.wav"),
+preload("res://_sounds/Step/step_4.wav"),
+preload("res://_sounds/Step/step_5.wav"),
+preload("res://_sounds/Step/step_6.wav")
+]
+
+
+
+var bone = [
+preload("res://_sounds/Bone/bonerattle_1.wav"),
+preload("res://_sounds/Bone/bonerattle_2.wav"),
+preload("res://_sounds/Bone/bonerattle_3.wav")
+
+
+
 ]
 
 var batears = false
@@ -15,7 +30,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") and !get_tree().root.has_node("Menu"):
 		if !get_tree().paused:
 			get_tree().paused = true
 			get_tree().root.add_child(load("res://_code/Scenes/Pause/Paused.tscn").instance())
@@ -28,14 +43,14 @@ func _process(delta):
 
 func bat_ears(pos):
 	#if(Input.is_action_just_pressed("left_click")):
-	var b = load("res://_code/Scenes/Player/BatSpot.tscn").instance()
+	var b = bs.instance()
 	randomize()
 	b.position = pos + Vector2(rand_range(-50,50),rand_range(-50,50))
 	get_tree().root.add_child(b)
 
 func vibration(target):
 	#if(Input.is_action_just_pressed("left_click")):
-	var v = load("res://_code/Scenes/Player/VibrationImage.tscn").instance()
+	var v = vibimg.instance()
 	v.scale = target.scale
 	v.texture = target.texture
 	v.hframes = target.hframes

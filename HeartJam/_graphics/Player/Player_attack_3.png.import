@@ -10,7 +10,7 @@ source_file="res://_graphics/Player/Player_attack_3.png"
 source_md5="f11751a668a39fda8df1f49e227eb46f"
 
 dest_files=[ "res://.import/Player_attack_3.png-b7e7f8bd6cc6458dc13c1a7ef0a7e144.stex" ]
-dest_md5="afd7d932db5c6c70752f2a7bed747616"
+dest_md5="b95ab9bc26459529f7396fa148bae7c9"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

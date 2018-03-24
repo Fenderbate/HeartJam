@@ -3,11 +3,12 @@ extends CanvasLayer
 var startscene = "res://_code/Scenes/_TESTING/Testing_Chamber.tscn"
 
 func _ready():
+	if(get_parent().name != "root"): $Music.stop()
 	$Options_Panel/MasterSound.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	$Options_Panel/Sound.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound"))
 	$Options_Panel/Music.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
 	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),value)
-
+	
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here

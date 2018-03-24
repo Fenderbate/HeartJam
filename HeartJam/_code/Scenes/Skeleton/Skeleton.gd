@@ -73,7 +73,7 @@ func _draw():
 
 func step():
 	if moving:
-		$Sound.stream = Global.step[rand_range(0,Global.step.size())]
+		$Sound.stream = Global.bone[rand_range(0,Global.bone.size())]
 		$Sound.play()
 	if(Global.vibration): Global.vibration($Sprite)
 	if(Global.batears): Global.bat_ears(position)
