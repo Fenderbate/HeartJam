@@ -228,7 +228,7 @@ autostart = false
 [node name="Sound" type="AudioStreamPlayer2D" parent="." index="5"]
 
 stream = ExtResource( 9 )
-volume_db = 0.0
+volume_db = -20.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -238,13 +238,6 @@ area_mask = 1
 [node name="Head" type="Position2D" parent="." index="6"]
 
 position = Vector2( 0, -10 )
-
-[node name="Stun" type="Timer" parent="." index="7"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
 
 [connection signal="body_entered" from="Sight" to="." method="_on_Sight_body_entered"]
 

@@ -22,8 +22,8 @@ bounce = 0.0
 gravity_scale = 1.0
 custom_integrator = false
 continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
+contacts_reported = 4
+contact_monitor = true
 sleeping = false
 can_sleep = true
 linear_velocity = Vector2( 0, 0 )
@@ -57,12 +57,14 @@ autostart = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
 
 stream = ExtResource( 4 )
-volume_db = 0.0
+volume_db = -20.0
 autoplay = true
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Sound"
 area_mask = 1
+
+[connection signal="body_entered" from="." to="." method="_on_Skull_body_entered"]
 
 [connection signal="timeout" from="Clear" to="." method="_on_Clear_timeout"]
 

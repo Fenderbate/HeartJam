@@ -74,7 +74,7 @@ func attack():
 					-1: $Anim.play("move_left")
 	else:
 		motion.x = 0
-		if ($Anim.current_animation != "attack" or !$Anim.is_playing()) and ($Stun.is_stopped()): $Anim.play("attack")
+		if $Anim.current_animation != "attack" or !$Anim.is_playing(): $Anim.play("attack")
 		#if $Attack.is_stopped(): $Attack.start()
 	
 
@@ -85,7 +85,7 @@ func step():
 	if moving:
 		$Sound.stream = Global.bone[rand_range(0,Global.bone.size())]
 		$Sound.play()
-	if(Global.vibration): Global.vibration($Sprite)
+	if Global.vibration: Global.vibration($Sprite)
 
 func _on_Sight_body_entered(body):
 	target = body
@@ -98,7 +98,7 @@ func hit():
 	target.hurt(dmg)
 	
 func hurt(dmg):
-	$Stun.start()
+	if $Anim.current_animation == "attack": $Anim.stop(true)
 	health -= dmg
 	if health <= 0:
 		var s = skull.instance()

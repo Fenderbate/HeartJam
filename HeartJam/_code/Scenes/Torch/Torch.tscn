@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://default_canvasitemmaterial.tres" type="Material" id=1]
 [ext_resource path="res://_graphics/Environment/Torch_1.png" type="Texture" id=2]
 [ext_resource path="res://_graphics/Environment/Torch_2.png" type="Texture" id=3]
 [ext_resource path="res://unshaded_material.tres" type="Material" id=4]
-[ext_resource path="res://_code/Scenes/_TESTING/light.png" type="Texture" id=5]
+[ext_resource path="res://_graphics/Player/Player_spell_particle.png" type="Texture" id=5]
+[ext_resource path="res://_code/Scenes/_TESTING/light.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -14,6 +15,57 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="Gradient" id=2]
+
+offsets = PoolRealArray( 0, 0.556213, 0.828402, 0.940828, 1 )
+colors = PoolColorArray( 0.4375, 0.0573044, 0.00683594, 1, 0.890625, 0.657423, 0.212219, 1, 1, 0.923218, 0.421875, 0.729294, 1, 1, 1, 0.309412, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+
+flags = 4
+gradient = SubResource( 2 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 8.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 90.0
+flatness = 0.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 3 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Emission Shape", "Gravity", "Spread" ]
 
 [node name="Torch" type="Node2D"]
 
@@ -26,16 +78,41 @@ position = Vector2( 0, 14 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "default"
+frame = 1
 playing = true
 _sections_unfolded = [ "Material", "Transform" ]
 
-[node name="Light2D" type="Light2D" parent="." index="1"]
+[node name="Particles2D" type="Particles2D" parent="." index="1"]
+
+material = ExtResource( 4 )
+position = Vector2( -1, -6 )
+emitting = true
+amount = 128
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 4 )
+texture = ExtResource( 5 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Material", "Process Material", "Textures" ]
+
+[node name="Light2D" type="Light2D" parent="." index="2"]
 
 material = ExtResource( 4 )
 position = Vector2( 0, -10 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, 0 )
 texture_scale = 0.16
 color = Color( 1, 1, 1, 1 )

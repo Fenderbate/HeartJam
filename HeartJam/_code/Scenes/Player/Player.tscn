@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://_code/Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://_code/Scenes/_TESTING/vision_mask.png" type="Texture" id=2]
@@ -11,9 +11,14 @@
 [ext_resource path="res://_graphics/Player/Player_move_3.png" type="Texture" id=9]
 [ext_resource path="res://_graphics/Player/Player_move_4.png" type="Texture" id=10]
 [ext_resource path="res://_graphics/Player/Player_move_1.png" type="Texture" id=11]
-[ext_resource path="res://_sounds/Step/step_1.wav" type="AudioStream" id=12]
-[ext_resource path="res://_sounds/Combat/hurt.wav" type="AudioStream" id=13]
-[ext_resource path="res://_sounds/Combat/staff_hit.wav" type="AudioStream" id=14]
+[ext_resource path="res://_graphics/Font/ARCADECLASSIC.TTF" type="DynamicFontData" id=12]
+[ext_resource path="res://_sounds/Step/step_1.wav" type="AudioStream" id=13]
+[ext_resource path="res://_sounds/Combat/hurt.wav" type="AudioStream" id=14]
+[ext_resource path="res://_sounds/Combat/staff_hit.wav" type="AudioStream" id=15]
+[ext_resource path="res://unshaded_material.tres" type="Material" id=16]
+[ext_resource path="res://_graphics/Player/health.png" type="Texture" id=17]
+[ext_resource path="res://_graphics/Player/mana.png" type="Texture" id=18]
+[ext_resource path="res://_graphics/Player/Player_spell_particle.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -102,7 +107,7 @@ tracks/1/keys = {
 "values": [ Vector2( -0.5, -2 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 
 resource_name = "move"
 length = 0.8
@@ -150,7 +155,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 
 length = 0.01
 loop = false
@@ -180,16 +185,177 @@ tracks/1/keys = {
 "values": [ Vector2( -0.5, 0 ) ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=9]
+[sub_resource type="CanvasItemMaterial" id=6]
 
 render_priority = 0
 blend_mode = 0
 light_mode = 1
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="DynamicFont" id=17]
+
+size = 16
+use_mipmaps = true
+use_filter = false
+font_data = ExtResource( 12 )
+_sections_unfolded = [ "Extra Spacing", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 17, 23 )
+
+[sub_resource type="Gradient" id=8]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0.0351563, 0.592957, 1, 1, 0, 0.484375, 1, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+
+flags = 4
+gradient = SubResource( 8 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=10]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 10, 3, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 90.0
+flatness = 0.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 20.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 20.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 9 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Initial Velocity", "Spread" ]
+
+[sub_resource type="Gradient" id=11]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0.707031, 0.662842, 0, 1, 1, 0.773438, 0, 0 )
+
+[sub_resource type="GradientTexture" id=12]
+
+flags = 4
+gradient = SubResource( 11 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=13]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 10, 3, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 90.0
+flatness = 0.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 20.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 20.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 12 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Initial Velocity", "Spread" ]
+
+[sub_resource type="Gradient" id=14]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0.574219, 0, 0, 1, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=15]
+
+flags = 4
+gradient = SubResource( 14 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=16]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 10, 3, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 90.0
+flatness = 0.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 20.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 20.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 15 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Initial Velocity", "Spread" ]
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -277,8 +443,8 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/attack = SubResource( 2 )
 anims/jump = SubResource( 3 )
-anims/move = SubResource( 5 )
-anims/stand = SubResource( 7 )
+anims/move = SubResource( 4 )
+anims/stand = SubResource( 5 )
 blend_times = [  ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
@@ -312,18 +478,18 @@ _sections_unfolded = [ "Drag Margin", "Smoothing" ]
 process_mode = 1
 wait_time = 1.0
 one_shot = false
-autostart = false
+autostart = true
 
 [node name="Speech" type="Label" parent="." index="7"]
 
-material = SubResource( 9 )
+material = SubResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -127.0
-margin_top = -95.0
-margin_right = 128.0
+margin_left = -132.0
+margin_top = -109.0
+margin_right = 134.0
 margin_bottom = -32.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -331,13 +497,14 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 17 )
 align = 1
 valign = 1
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Material" ]
+_sections_unfolded = [ "Material", "Rect", "custom_fonts" ]
 
 [node name="SpeechTimer" type="Timer" parent="." index="8"]
 
@@ -348,7 +515,7 @@ autostart = false
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="." index="9"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = -20.0
 autoplay = false
 max_distance = 2000.0
@@ -356,18 +523,31 @@ attenuation = 1.0
 bus = "Sound"
 area_mask = 1
 
-[node name="Hurt" type="AudioStreamPlayer2D" parent="." index="10"]
+[node name="Audio2" type="AudioStreamPlayer2D" parent="." index="10"]
 
 stream = ExtResource( 13 )
-volume_db = 0.0
+volume_db = -20.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
 bus = "Sound"
 area_mask = 1
 
-[node name="Weapon" type="Area2D" parent="." index="11"]
+[node name="Hurt" type="AudioStreamPlayer2D" parent="." index="11"]
 
+pause_mode = 2
+stream = ExtResource( 14 )
+volume_db = 0.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Sound"
+area_mask = 1
+_sections_unfolded = [ "Pause" ]
+
+[node name="Weapon" type="Area2D" parent="." index="12"]
+
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -381,8 +561,8 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="Weapon" index="0"]
 
-stream = ExtResource( 14 )
-volume_db = 0.0
+stream = ExtResource( 15 )
+volume_db = -20.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -392,14 +572,115 @@ area_mask = 1
 [node name="Left" type="CollisionShape2D" parent="Weapon" index="1"]
 
 position = Vector2( -17, 5 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 disabled = true
 
 [node name="Right" type="CollisionShape2D" parent="Weapon" index="2"]
 
 position = Vector2( 17, 5 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 disabled = true
+
+[node name="UI" type="CanvasLayer" parent="." index="13"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="RedEye" type="Sprite" parent="UI" index="0"]
+
+material = ExtResource( 16 )
+position = Vector2( 41, 681 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 17 )
+hframes = 5
+_sections_unfolded = [ "Animation", "Material" ]
+
+[node name="BlueEye" type="Sprite" parent="UI" index="1"]
+
+material = ExtResource( 16 )
+position = Vector2( 1240, 680 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 18 )
+hframes = 5
+_sections_unfolded = [ "Animation", "Material", "Transform" ]
+
+[node name="MEParticles" type="Particles2D" parent="." index="14"]
+
+material = ExtResource( 16 )
+position = Vector2( 0, 28 )
+z_index = 11
+emitting = false
+amount = 16
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 10 )
+texture = ExtResource( 19 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Transform", "Z Index" ]
+
+[node name="VParticles" type="Particles2D" parent="." index="15"]
+
+material = ExtResource( 16 )
+position = Vector2( 0, 28 )
+z_index = 11
+emitting = false
+amount = 16
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 13 )
+texture = ExtResource( 19 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Transform", "Z Index" ]
+
+[node name="BEParticles" type="Particles2D" parent="." index="16"]
+
+material = ExtResource( 16 )
+position = Vector2( 0, 28 )
+z_index = 11
+emitting = false
+amount = 16
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 16 )
+texture = ExtResource( 19 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Transform", "Z Index" ]
 
 [connection signal="timeout" from="ManaTimer" to="." method="_on_ManaTimer_timeout"]
 

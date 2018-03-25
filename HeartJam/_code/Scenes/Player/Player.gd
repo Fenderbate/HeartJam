@@ -13,10 +13,11 @@ var motion = Vector2()
 var FLOOR_NORMAL = Vector2(0,-1)
 
 var JUMP_HEIGHT = -300
+var jumped = false
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-
-var health = 10
+var maxhealth = float(10)
+var health = float(10)
 var max_mana = float(1000)
 var mana = float(1000)
 
@@ -36,6 +37,7 @@ var enemyhit=[
 ]
 
 var manastage = [
+false,#75%
 false,#50%
 false,#25%
 false,#10%
@@ -48,14 +50,12 @@ func _ready():
 
 func _physics_process(delta):
 	
-	manastatus()
-	
 	magic_eyes()
 	
 	input()
 	movement(delta)
 	
-	if (Global.batears or Global.vibration or Global.magiceyes) and $ManaTimer.is_stopped(): $ManaTimer.start()
+	#if (Global.batears or Global.vibration or Global.magiceyes) and $ManaTimer.is_stopped(): $ManaTimer.start()
 	
 	update()
 	
@@ -74,7 +74,10 @@ func input():
 	if dir != 0:
 		$Sprite.scale.x = 2*dir
 		lastdir = dir
-	if Input.is_action_just_pressed("up") and is_on_floor(): motion.y = JUMP_HEIGHT
+	if Input.is_action_just_pressed("up") and is_on_floor():
+		motion.y = JUMP_HEIGHT
+		$Audio.stream = Global.step[rand_range(0,Global.step.size())]
+		$Audio.play()
 	
 	#if dir != 0: $Sprite.scale.x = 2* dir
 	
@@ -83,9 +86,15 @@ func input():
 	elif dir == 0 and is_on_floor() and $Anim.current_animation != "stand" and $Anim.current_animation !="attack":
 		$Anim.play("stand")
 	
-	if Input.is_action_just_pressed("magic_eyes") and mana >= 10: Global.magiceyes = !Global.magiceyes
-	if Input.is_action_just_pressed("bat_ears") and mana >= 2: Global.batears = !Global.batears
-	if Input.is_action_just_pressed("vibration") and mana >= 5: Global.vibration = !Global.vibration
+	if Input.is_action_just_pressed("magic_eyes") and mana >= 10:
+		$MEParticles.emitting = !$MEParticles.emitting
+		Global.magiceyes = !Global.magiceyes
+	if Input.is_action_just_pressed("bat_ears") and mana >= 2:
+		$BEParticles.emitting = !$BEParticles.emitting
+		Global.batears = !Global.batears
+	if Input.is_action_just_pressed("vibration") and mana >= 5:
+		$VParticles.emitting = !$VParticles.emitting
+		Global.vibration = !Global.vibration
 	
 
 func movement(delta):
@@ -95,6 +104,12 @@ func movement(delta):
 	motion = Vector2(spd*dir,motion.y+g)
 	motion = move_and_slide(motion,FLOOR_NORMAL)
 	
+	if is_on_floor() and jumped == true:
+		jumped = false
+		$Audio.stream = Global.step[rand_range(0,Global.step.size())]
+		$Audio.play()
+	elif !is_on_floor() and jumped == false:
+		jumped = true
 	
 	for x in get_slide_count(): if get_slide_collision(x).normal.x != 0 and $Speech.text == "":
 		randomize()
@@ -112,12 +127,14 @@ func magic_eyes():
 
 func hurt(damage):
 	randomize()
-	say(enemyhit[rand_range(0,enemyhit.size())],1)
 	$Hurt.play()
 	health -= damage
+	healthstatus()
 	if(health <= 0):
+		$Sprite.hide()
 		get_parent().add_child(load("res://_code/Scenes/Game Over/Game_Over.tscn").instance())
 		pass
+	else: say(enemyhit[rand_range(0,enemyhit.size())],1)
 
 func say(text, time, persistent = false):
 	if persistent == true:
@@ -137,11 +154,19 @@ func _on_SpeechTimer_timeout():
 func playsound(filename):
 	match filename:
 		"step":
-			$Audio.stream = Global.step[rand_range(0,Global.step.size())]
-			$Audio.play()
+			if !$Audio.playing:
+				$Audio.stream = Global.step[rand_range(0,Global.step.size())]
+				$Audio.play()
+			else:
+				$Audio2.stream = Global.step[rand_range(0,Global.step.size())]
+				$Audio2.play()
 		"swing":
-			$Audio.stream = Global.swing
-			$Audio.play()
+			if !$Audio.playing:
+				$Audio.stream = Global.swing
+				$Audio.play()
+			else:
+				$Audio2.stream = Global.swing
+				$Audio2.play()
 
 func attack(start):
 	if start:
@@ -156,27 +181,40 @@ func attack(start):
 
 func _on_ManaTimer_timeout():
 	if Global.magiceyes: mana -= 10
-	elif Global.vibration: mana -= 5
-	elif Global.batears: mana -= 2
+	if Global.vibration: mana -= 5
+	if Global.batears: mana -= 2
 	
 	if mana < 0: mana = 0
-
+	
+	
+	print(mana)
+	manastatus()
 
 func manastatus():
-	if(float(mana / max_mana) <= 0.5 and manastage[0] == false):
-		say("I'm starting to get tired.",5)
+	if float(mana / max_mana) <= 0.75 and manastage[0] == false:
 		manastage[0] = true
-	if(float(mana / max_mana) <= 0.25 and manastage[1] == false):
-		say("Most of my strengh is gone... where's the exit?!",5)
+		$UI/BlueEye.frame = 1
+	if float(mana / max_mana) <= 0.5 and manastage[1] == false:
+		say("I'm starting to get tired.",5)
 		manastage[1] = true
-	if(float(mana / max_mana) <= 0.1 and manastage[2] == false):
-		say("I'm reaching my limit.",5)
+		$UI/BlueEye.frame = 2
+	if float(mana / max_mana) <= 0.25 and manastage[2] == false:
+		say("Most of my strengh is gone... where's the exit?!",5)
 		manastage[2] = true
-	if(float(mana / max_mana) <= 0 and manastage[3] == false):
-		say("I ran out of strengh... Hopefully this place ran out of corridoors too...",5)
+		$UI/BlueEye.frame = 3
+	if float(mana / max_mana) <= 0.1 and manastage[3] == false:
+		say("I'm reaching my limit.",5)
 		manastage[3] = true
+	if float(mana / max_mana) <= 0 and manastage[4] == false:
+		say("I ran out of strengh... Hopefully this place ran out of corridoors too...",5)
+		manastage[4] = true
+		$UI/BlueEye.frame = 4
 
-
+func healthstatus():
+	if float(health/maxhealth) <= 0.75: $UI/RedEye.frame = 1
+	if float(health/maxhealth) <= 0.5: $UI/RedEye.frame = 2
+	if float(health/maxhealth) <= 0.25: $UI/RedEye.frame = 3
+	if float(health/maxhealth) <= 0: $UI/RedEye.frame = 4
 
 func _on_Weapon_body_entered(body):
 	$Weapon/Hit.play()

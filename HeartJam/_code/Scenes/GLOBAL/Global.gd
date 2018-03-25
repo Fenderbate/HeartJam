@@ -35,6 +35,11 @@ var spawn_bat_bubble = false
 func _ready():
 	pass
 
+func reload():
+	magiceyes = false
+	batears = false
+	vibration = false
+
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel") and !get_tree().root.has_node("Menu"):
 		if !get_tree().paused:
@@ -64,6 +69,7 @@ func vibration(target):
 	v.vframes = target.vframes
 	v.frame = target.frame
 	v.position = target.get_parent().position
+	v.rotation = target.get_parent().rotation
 	get_tree().root.add_child(v)
 
 func _on_BatEarsTimer_timeout():
