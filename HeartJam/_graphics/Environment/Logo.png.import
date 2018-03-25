@@ -7,7 +7,7 @@ path="res://.import/Logo.png-97586ee4d160c16d280d9ec694428489.stex"
 [deps]
 
 source_file="res://_graphics/Environment/Logo.png"
-source_md5="d84a6ddfcac05d6d974ba38eccdc85f1"
+source_md5="5c7b64c58be9b7d4c9458606132d4b37"
 
 dest_files=[ "res://.import/Logo.png-97586ee4d160c16d280d9ec694428489.stex" ]
 dest_md5="3cc9307d6b894d6a93438a57f0d97eab"

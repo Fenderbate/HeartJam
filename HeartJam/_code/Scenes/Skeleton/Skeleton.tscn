@@ -239,10 +239,29 @@ area_mask = 1
 
 position = Vector2( 0, -10 )
 
+[node name="Vis" type="VisibilityNotifier2D" parent="." index="7"]
+
+position = Vector2( 0, 7 )
+scale = Vector2( 1.5, 2.6 )
+rect = Rect2( -10, -10, 20, 20 )
+
+[node name="BETimer" type="Timer" parent="." index="8"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
 [connection signal="body_entered" from="Sight" to="." method="_on_Sight_body_entered"]
 
 [connection signal="body_exited" from="Sight" to="." method="_on_Sight_body_exited"]
 
 [connection signal="timeout" from="Attack" to="." method="_on_Attack_timeout"]
+
+[connection signal="screen_entered" from="Vis" to="." method="_on_Vis_screen_entered"]
+
+[connection signal="screen_exited" from="Vis" to="." method="_on_Vis_screen_exited"]
+
+[connection signal="timeout" from="BETimer" to="." method="_on_BETimer_timeout"]
 
 

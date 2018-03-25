@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://_code/Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://_code/Scenes/_TESTING/vision_mask.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://_graphics/Player/health.png" type="Texture" id=17]
 [ext_resource path="res://_graphics/Player/mana.png" type="Texture" id=18]
 [ext_resource path="res://_graphics/Player/Player_spell_particle.png" type="Texture" id=19]
+[ext_resource path="res://_code/Scenes/_TESTING/EDITOR_LIGHT.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -681,6 +682,33 @@ normal_map = null
 h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Transform", "Z Index" ]
+
+[node name="DeathLight" type="Light2D" parent="." index="17"]
+
+visible = false
+position = Vector2( -0.499982, 12 )
+scale = Vector2( 21.4688, 12.125 )
+enabled = true
+editor_only = false
+texture = ExtResource( 20 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
 
 [connection signal="timeout" from="ManaTimer" to="." method="_on_ManaTimer_timeout"]
 

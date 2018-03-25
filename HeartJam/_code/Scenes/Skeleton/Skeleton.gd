@@ -19,6 +19,10 @@ var motion = Vector2()
 var dmg = 1
 var health = 3
 
+var vvisible = false
+
+var bat_ears_child = null
+
 func _ready():
 	$Anim.play("stand")
 
@@ -27,7 +31,7 @@ func _physics_process(delta):
 	motion.y += gravity*delta*2
 	motion = move_and_slide(motion,Vector2(0,1))
 	
-	if Global.batears: Global.bat_ears(position)
+	if Global.batears and vvisible: bat_ears(position)
 	
 	update()
 	
@@ -106,8 +110,25 @@ func hurt(dmg):
 		get_parent().add_child(s)
 		queue_free()
 
+func bat_ears(pos):
+	#if(Input.is_action_just_pressed("left_click")):
+	if bat_ears_child == null:
+		bat_ears_child = Global.bs.instance()
+		randomize()
+		bat_ears_child.global_position = pos + Vector2(rand_range(-50,50),rand_range(-50,50))
+		get_tree().root.add_child(bat_ears_child)
 
 func _on_Attack_timeout():
 	$Anim.play("attack")
 	
 	
+
+
+func _on_Vis_screen_entered(): vvisible = true
+
+
+func _on_Vis_screen_exited(): vvisible = false
+
+
+func _on_BETimer_timeout():
+	bat_ears_child = null

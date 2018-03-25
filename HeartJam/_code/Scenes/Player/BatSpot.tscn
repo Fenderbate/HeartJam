@@ -8,7 +8,6 @@
 [node name="BatSpot" type="Light2D"]
 
 material = ExtResource( 1 )
-position = Vector2( 480, 192 )
 enabled = true
 editor_only = false
 texture = ExtResource( 2 )

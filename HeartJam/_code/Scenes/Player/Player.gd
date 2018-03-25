@@ -18,8 +18,8 @@ var jumped = false
 
 var maxhealth = float(10)
 var health = float(10)
-var max_mana = float(1000)
-var mana = float(1000)
+var max_mana = float(1250)
+var mana = float(1250)
 
 var can_change_text = true
 var wallhit =[
@@ -133,9 +133,15 @@ func hurt(damage):
 	healthstatus()
 	if(health <= 0):
 		$Sprite.hide()
-		get_parent().add_child(load("res://_code/Scenes/Game Over/Game_Over.tscn").instance())
+		show_screen()
 		pass
 	else: say(enemyhit[rand_range(0,enemyhit.size())],1)
+
+func show_screen():
+	$DeathLight.show()
+	if !$DeathLight.visible: show_screen()
+	else:
+		get_parent().add_child(load("res://_code/Scenes/Game Over/Game_Over.tscn").instance())
 
 func say(text, time, persistent = false):
 	if persistent == true:

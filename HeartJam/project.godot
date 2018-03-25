@@ -10,9 +10,10 @@ config_version=3
 
 [application]
 
-config/name="HeartJam"
+config/name="Blindness"
 run/main_scene="res://_code/Scenes/Cinematic/Cinematic.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://_graphics/Cinematic/Cinematic_1_1.png"
+config/icon="res://blindness.png"
 
 [autoload]
 

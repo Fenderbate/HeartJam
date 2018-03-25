@@ -74,11 +74,11 @@ func _on_No_button_down():
 
 
 func _on_Prev_button_down():
-	htppage-=1
-	if htppage <0: htppage = 0
+	if htppage > 0: htppage-=1
 	htppages()
 
 
 func _on_Next_button_down():
-	htppage+=1
+	if htppage < 3: htppage+=1
+	
 	htppages()

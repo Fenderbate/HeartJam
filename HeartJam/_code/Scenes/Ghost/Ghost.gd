@@ -19,6 +19,10 @@ var motion = Vector2()
 var dmg = 1
 var health = 3
 
+var vvisible = false
+
+var bat_ears_child = null
+
 func _ready():
 	pass#$Anim.play("stand")
 
@@ -27,6 +31,7 @@ func _physics_process(delta):
 	motion.y += gravity*delta*2
 	motion = move_and_slide(motion,Vector2(0,1))
 	
+	if Global.batears and vvisible: bat_ears(position)
 	
 	update()
 	
@@ -73,9 +78,7 @@ func _draw():
 	pass#if do_draw: draw_line(Vector2(),hit_pos-position,l_color,1,true)
 
 func step():
-	if moving:
-		$Sound.stream = Global.ghost[rand_range(0,Global.bone.size())]
-		$Sound.play()
+	if moving:pass
 	if Global.vibration: Global.vibration($Sprite)
 
 func _on_Sight_body_entered(body):
@@ -93,7 +96,8 @@ func hurt(dmg):
 	#if $Anim.current_animation == "attack": $Anim.stop(true)
 	health -= dmg
 	if health <= 0:
-		#ded animation
+		$Sound.stream = Global.ghost[rand_range(0,Global.ghost.size())]
+		$Sound.play()
 		queue_free()
 
 
@@ -101,3 +105,26 @@ func _on_Attack_timeout():
 	pass#$Anim.play("attack")
 	
 	
+func _on_SoundTimer_timeout():
+	if(!$Sound.playing):
+		$Sound.stream = Global.ghost[rand_range(0,Global.ghost.size())]
+		$Sound.play()
+	$SoundTimer.start()
+
+func bat_ears(pos):
+	#if(Input.is_action_just_pressed("left_click")):
+	if bat_ears_child == null:
+		bat_ears_child = Global.bs.instance()
+		randomize()
+		bat_ears_child.global_position = pos + Vector2(rand_range(-50,50),rand_range(-50,50))
+		get_tree().root.add_child(bat_ears_child)
+
+
+func _on_Vis_screen_entered(): vvisible = true
+
+
+func _on_Vis_screen_exited(): vvisible = false
+
+
+func _on_BETimer_timeout():
+	bat_ears_child = null

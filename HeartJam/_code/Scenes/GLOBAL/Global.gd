@@ -22,7 +22,9 @@ preload("res://_sounds/Bone/bonerattle_3.wav")
 ]
 
 var ghost = [
-
+preload("res://_sounds/Ghost/ghost_1.wav"),
+preload("res://_sounds/Ghost/ghost_2.wav"),
+preload("res://_sounds/Ghost/ghost_3.wav")
 ]
 
 var swing = preload("res://_sounds/Combat/swing_wav.wav")
@@ -55,12 +57,10 @@ func _process(delta):
 
 func bat_ears(pos):
 	#if(Input.is_action_just_pressed("left_click")):
-	var b = bs.instance()
+	var b = Global.bs.instance()
 	randomize()
-	b.position = pos + Vector2(rand_range(-50,50),rand_range(-50,50))
-	if spawn_bat_bubble:
-		get_tree().root.add_child(b)
-		spawn_bat_bubble = false
+	b.global_position = pos + Vector2(rand_range(-50,50),rand_range(-50,50))
+	get_tree().root.add_child(b)
 
 func vibration(target):
 	var v = vibimg.instance()

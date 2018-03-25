@@ -18,9 +18,9 @@ var text_array = [
 "When I was exploring in a forgotten place, I sensed some kind of power.",
 "When I was exploring in a forgotten place, I sensed some kind of power.",
 "It was a powerful relic. I was so foolish and couldn't resist the temptation to claim it.",
-"'It's beautiful!' - I said - 'How much power can it hold?'",
-"'It's beautiful!' - I said - 'How much power can it hold?'",
-"'It's beautiful!' - I said - 'How much power can it hold?'",
+"'It's beautiful!' - I said - 'I wonder how much power does it contain...'",
+"'It's beautiful!' - I said - 'I wonder how much power does it contain...'",
+"'It's beautiful!' - I said - 'I wonder how much power does it contain...'",
 "But after I picked it up, the whole place started to shake and a curse from the relic blinded me. Now i have to leave this place somehow..."
 ]
 

@@ -39,11 +39,11 @@ _sections_unfolded = [ "Transform" ]
 [node name="Sound" type="AudioStreamPlayer2D" parent="." index="2"]
 
 stream = null
-volume_db = 0.0
+volume_db = -20.0
 autoplay = false
-max_distance = 2000.0
+max_distance = 3000.0
 attenuation = 1.0
-bus = "Master"
+bus = "Sound"
 area_mask = 1
 
 [node name="Sight" type="Area2D" parent="." index="3"]
@@ -67,10 +67,38 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
+[node name="SoundTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = true
+
+[node name="Vis" type="VisibilityNotifier2D" parent="." index="6"]
+
+position = Vector2( 1.90735e-06, 3 )
+scale = Vector2( 2, 2.7 )
+rect = Rect2( -10, -10, 20, 20 )
+
+[node name="BETimer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 0.25
+one_shot = false
+autostart = true
+
 [connection signal="body_entered" from="Sight" to="." method="_on_Sight_body_entered"]
 
 [connection signal="body_exited" from="Sight" to="." method="_on_Sight_body_exited"]
 
 [connection signal="timeout" from="Attack" to="." method="_on_Attack_timeout"]
+
+[connection signal="timeout" from="SoundTimer" to="." method="_on_SoundTimer_timeout"]
+
+[connection signal="screen_entered" from="Vis" to="." method="_on_Vis_screen_entered"]
+
+[connection signal="screen_exited" from="Vis" to="." method="_on_Vis_screen_exited"]
+
+[connection signal="timeout" from="BETimer" to="." method="_on_BETimer_timeout"]
 
 

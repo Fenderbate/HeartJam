@@ -9,9 +9,7 @@ func _ready():
 	# Initialization here
 	pass
 
-func _process(delta):
-	
-	
-	if Global.batears:
-		for g in get_tree().get_nodes_in_group("Ghost"):
-			Global.bat_ears(g.position)
+
+
+func _on_End_body_entered(body):
+	get_tree().change_scene("res://_code/Scenes/End/WP.tscn")
