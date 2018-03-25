@@ -7,10 +7,10 @@ path="res://.import/health.png-0ee2b48233fa7a0c7ee3f68aa262ce4a.stex"
 [deps]
 
 source_file="res://_graphics/Player/health.png"
-source_md5="4532f27ca3079f8e06bbf80e24fc286f"
+source_md5="bf5bdb224d79a337c6885b5a18969b0b"
 
 dest_files=[ "res://.import/health.png-0ee2b48233fa7a0c7ee3f68aa262ce4a.stex" ]
-dest_md5="92faeb300fee9d7d279fd37abaa9a315"
+dest_md5="1da9b57de5a9f29dd39d948da752bf48"
 
 [params]
 

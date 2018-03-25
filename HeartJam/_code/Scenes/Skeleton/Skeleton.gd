@@ -27,7 +27,7 @@ func _physics_process(delta):
 	motion.y += gravity*delta*2
 	motion = move_and_slide(motion,Vector2(0,1))
 	
-	if(Global.batears): Global.bat_ears(position)
+	if Global.batears: Global.bat_ears(position)
 	
 	update()
 	

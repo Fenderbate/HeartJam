@@ -2,6 +2,8 @@ extends CanvasLayer
 
 var startscene = "res://_code/Scenes/_TESTING/Testing_Chamber.tscn"
 
+var htppage = 0
+
 func _ready():
 	if(get_parent().name != "root"): $Music.stop()
 	$Options_Panel/MasterSound.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
@@ -9,20 +11,40 @@ func _ready():
 	$Options_Panel/Music.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
 	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),value)
 	
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here
-#	pass
+func _process(delta):
+	pass
+	
+	
+func htppages():
+	for p in get_tree().get_nodes_in_group("Page"):
+		if p.name != str("Page ",htppage):p.hide()
+		else: p.show()
+
 
 func _on_Start_button_down():
 	get_tree().change_scene(startscene)
 
 func _on_Options_button_down():
-	if(!$Options_Panel.visible):$Options_Panel.show()
+	$Exit_Game.hide()
+	if(!$Options_Panel.visible):
+		$HTP_Panel.hide()
+		htppage = 0
+		$Options_Panel.show()
 	else: $Options_Panel.hide()
 
+func _on_HowToPlay_button_down():
+	$Exit_Game.hide()
+	if(!$HTP_Panel.visible):
+		$Options_Panel.hide()
+		$HTP_Panel.show()
+		htppages()
+	else:
+		$HTP_Panel.hide()
+		htppage = 0
+
 func _on_Exit_button_down():
-	$Exit_Game.show()
+	if !$Exit_Game.visible: $Exit_Game.show()
+	else: $Exit_Game.hide()
 
 func _on_Resolution_item_selected(ID):
 	var res = $Options_Panel/Resolution.get_item_text(ID).split("x")
@@ -46,3 +68,17 @@ func _on_Yes_button_down():
 
 func _on_No_button_down():
 	$Exit_Game.hide()
+
+
+
+
+
+func _on_Prev_button_down():
+	htppage-=1
+	if htppage <0: htppage = 0
+	htppages()
+
+
+func _on_Next_button_down():
+	htppage+=1
+	htppages()

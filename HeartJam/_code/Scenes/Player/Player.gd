@@ -60,9 +60,9 @@ func _physics_process(delta):
 	update()
 	
 
-func _draw():
-	for x in get_slide_count():
-		draw_line(Vector2(),Vector2(100,100)*-get_slide_collision(x).normal,Color(1,1,1,1),2,false)
+#func _draw():
+#	for x in get_slide_count():
+#		draw_line(Vector2(),Vector2(100,100)*-get_slide_collision(x).normal,Color(1,1,1,1),2,false)
 	
 	
 	#draw_texture(t,Vector2(0,-20))
@@ -113,7 +113,8 @@ func movement(delta):
 	
 	for x in get_slide_count(): if get_slide_collision(x).normal.x != 0 and $Speech.text == "":
 		randomize()
-		if get_slide_collision(x).collider.name == "TileMap" and is_on_floor(): say(wallhit[rand_range(0,wallhit.size())],1)
+		if get_slide_collision(x).collider.name.matchn("Tile*") and is_on_floor(): say(wallhit[rand_range(0,wallhit.size())],1)
+		
 		return
 
 func magic_eyes():
@@ -209,6 +210,12 @@ func manastatus():
 		say("I ran out of strengh... Hopefully this place ran out of corridoors too...",5)
 		manastage[4] = true
 		$UI/BlueEye.frame = 4
+		Global.magiceyes = false
+		Global.vibration = false
+		Global.batears = false
+		$MEParticles.emitting = false
+		$VParticles.emitting = false
+		$BEParticles.emitting = false
 
 func healthstatus():
 	if float(health/maxhealth) <= 0.75: $UI/RedEye.frame = 1

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://_code/Scenes/Game Over/Game Over.gd" type="Script" id=1]
 [ext_resource path="res://unshaded_material.tres" type="Material" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=3]
 
 [node name="Game_Over" type="CanvasLayer"]
 
@@ -17,14 +17,15 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Text" type="Label" parent="." index="0"]
 
+modulate = Color( 0.496094, 0.00775146, 0.00775146, 1 )
 material = ExtResource( 2 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 290.0
+margin_top = 224.0
 margin_right = 256.0
-margin_bottom = 304.0
+margin_bottom = 254.0
 rect_scale = Vector2( 5, 5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -32,13 +33,14 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
 text = "You died"
 align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
 
 [node name="Retry" type="TextureButton" parent="." index="1"]
 
@@ -47,10 +49,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 496.0
+margin_left = 448.0
 margin_top = 368.0
-margin_right = 560.0
-margin_bottom = 432.0
+margin_right = 512.0
+margin_bottom = 400.0
+rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -62,9 +65,31 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 3 )
-_sections_unfolded = [ "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Text2" type="Label" parent="Retry" index="0"]
+
+material = ExtResource( 2 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 64.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Retry"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
 
 [node name="Exit" type="TextureButton" parent="." index="2"]
 
@@ -75,8 +100,9 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 704.0
 margin_top = 368.0
-margin_right = 768.0
-margin_bottom = 432.0
+margin_right = 752.0
+margin_bottom = 400.0
+rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -88,9 +114,31 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 3 )
-_sections_unfolded = [ "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Text2" type="Label" parent="Exit" index="0"]
+
+material = ExtResource( 2 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 47.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Quit"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility", "custom_fonts" ]
 
 [connection signal="button_down" from="Retry" to="." method="_on_Retry_button_down"]
 

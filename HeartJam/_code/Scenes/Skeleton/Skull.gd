@@ -15,5 +15,4 @@ func _on_Clear_timeout():
 
 
 func _on_Skull_body_entered(body):
-	print("ASDASDASDASD")
 	if Global.vibration: Global.vibration($Sprite)

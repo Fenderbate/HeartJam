@@ -7,10 +7,10 @@ path="res://.import/vision_mask.png-b108675b2ccb1c8851929b6f9fa6d24f.stex"
 [deps]
 
 source_file="res://_code/Scenes/_TESTING/vision_mask.png"
-source_md5="0f46166524603b43891fa8c0b830aadd"
+source_md5="20b962aa1a998c68536690f2ac52d40e"
 
 dest_files=[ "res://.import/vision_mask.png-b108675b2ccb1c8851929b6f9fa6d24f.stex" ]
-dest_md5="7d1dab04126ee507c97b5f40f48ccbfc"
+dest_md5="d29118b31667aa28d34022f57cf7a56e"
 
 [params]
 

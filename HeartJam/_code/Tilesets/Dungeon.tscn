@@ -434,4 +434,36 @@ region_enabled = true
 region_rect = Rect2( 256, 96, 32, 32 )
 _sections_unfolded = [ "Region" ]
 
+[node name="Door_1" type="Sprite" parent="." index="36"]
+
+position = Vector2( 64, 192 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 160, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Door_2" type="Sprite" parent="." index="37"]
+
+position = Vector2( 128, 192 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 160, 64, 64 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Ladder" type="Sprite" parent="." index="38"]
+
+position = Vector2( 176, 208 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 160, 192, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Sewer_open" type="Sprite" parent="." index="39"]
+
+position = Vector2( 208, 208 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 192, 32, 32 )
+_sections_unfolded = [ "Region" ]
+
 

@@ -7,10 +7,10 @@ path="res://.import/player_light.png-881ac58ff3c5a1cf1a0570f6c110890c.stex"
 [deps]
 
 source_file="res://_code/Scenes/_TESTING/player_light.png"
-source_md5="4c49cabc6dca0dafc76dff4ac9973c68"
+source_md5="ea701879d9e284a3c2ee7731c378968d"
 
 dest_files=[ "res://.import/player_light.png-881ac58ff3c5a1cf1a0570f6c110890c.stex" ]
-dest_md5="c37fd3d296aff18f7b54ef169c9f74b2"
+dest_md5="99bf32de723dc9854d1f3349ecea4c1d"
 
 [params]
 

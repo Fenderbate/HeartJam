@@ -7,10 +7,10 @@ path="res://.import/Tileset_2.png-d8dd423f64afaa17b756deec8b72ced1.stex"
 [deps]
 
 source_file="res://_graphics/Tilesets/Tileset_2.png"
-source_md5="58d9153c99594ab56f60f2710e4d3c9c"
+source_md5="e2c920249e74585e350a5d6115617c5e"
 
 dest_files=[ "res://.import/Tileset_2.png-d8dd423f64afaa17b756deec8b72ced1.stex" ]
-dest_md5="9596da3ac42e80042b907ed0f8819662"
+dest_md5="b6030d81e5a1df64439823a854ccf27d"
 
 [params]
 

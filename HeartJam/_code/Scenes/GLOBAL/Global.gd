@@ -19,8 +19,9 @@ var bone = [
 preload("res://_sounds/Bone/bonerattle_1.wav"),
 preload("res://_sounds/Bone/bonerattle_2.wav"),
 preload("res://_sounds/Bone/bonerattle_3.wav")
+]
 
-
+var ghost = [
 
 ]
 

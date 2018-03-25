@@ -11,7 +11,7 @@
 [ext_resource path="res://_graphics/Player/Player_move_3.png" type="Texture" id=9]
 [ext_resource path="res://_graphics/Player/Player_move_4.png" type="Texture" id=10]
 [ext_resource path="res://_graphics/Player/Player_move_1.png" type="Texture" id=11]
-[ext_resource path="res://_graphics/Font/ARCADECLASSIC.TTF" type="DynamicFontData" id=12]
+[ext_resource path="res://_graphics/Font/dpcomic.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://_sounds/Step/step_1.wav" type="AudioStream" id=13]
 [ext_resource path="res://_sounds/Combat/hurt.wav" type="AudioStream" id=14]
 [ext_resource path="res://_sounds/Combat/staff_hit.wav" type="AudioStream" id=15]
@@ -191,31 +191,31 @@ render_priority = 0
 blend_mode = 0
 light_mode = 1
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=7]
 
 size = 16
-use_mipmaps = true
+use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 12 )
-_sections_unfolded = [ "Extra Spacing", "Settings" ]
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 17, 23 )
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=9]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0.0351563, 0.592957, 1, 1, 0, 0.484375, 1, 0 )
 
-[sub_resource type="GradientTexture" id=9]
+[sub_resource type="GradientTexture" id=10]
 
 flags = 4
-gradient = SubResource( 8 )
+gradient = SubResource( 9 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=11]
 
 render_priority = 0
 trail_divisor = 1
@@ -245,7 +245,7 @@ angle = 20.0
 angle_random = 1.0
 scale = 1.0
 scale_random = 0.0
-color_ramp = SubResource( 9 )
+color_ramp = SubResource( 10 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -255,18 +255,18 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Initial Velocity", "Spread" ]
 
-[sub_resource type="Gradient" id=11]
+[sub_resource type="Gradient" id=12]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0.707031, 0.662842, 0, 1, 1, 0.773438, 0, 0 )
 
-[sub_resource type="GradientTexture" id=12]
+[sub_resource type="GradientTexture" id=13]
 
 flags = 4
-gradient = SubResource( 11 )
+gradient = SubResource( 12 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=13]
+[sub_resource type="ParticlesMaterial" id=14]
 
 render_priority = 0
 trail_divisor = 1
@@ -296,7 +296,7 @@ angle = 20.0
 angle_random = 1.0
 scale = 1.0
 scale_random = 0.0
-color_ramp = SubResource( 12 )
+color_ramp = SubResource( 13 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -306,18 +306,18 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Initial Velocity", "Spread" ]
 
-[sub_resource type="Gradient" id=14]
+[sub_resource type="Gradient" id=15]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0.574219, 0, 0, 1, 1, 0, 0, 0 )
 
-[sub_resource type="GradientTexture" id=15]
+[sub_resource type="GradientTexture" id=16]
 
 flags = 4
-gradient = SubResource( 14 )
+gradient = SubResource( 15 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=16]
+[sub_resource type="ParticlesMaterial" id=17]
 
 render_priority = 0
 trail_divisor = 1
@@ -347,7 +347,7 @@ angle = 20.0
 angle_random = 1.0
 scale = 1.0
 scale_random = 0.0
-color_ramp = SubResource( 15 )
+color_ramp = SubResource( 16 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -368,6 +368,7 @@ _sections_unfolded = [ "Collision", "collision" ]
 
 [node name="MagicEyes" type="Light2D" parent="." index="0"]
 
+visible = false
 position = Vector2( 0, -13 )
 enabled = true
 editor_only = false
@@ -497,7 +498,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 7 )
 align = 1
 valign = 1
 autowrap = true
@@ -547,7 +548,6 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Weapon" type="Area2D" parent="." index="12"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -562,7 +562,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 [node name="Hit" type="AudioStreamPlayer2D" parent="Weapon" index="0"]
 
 stream = ExtResource( 15 )
-volume_db = -20.0
+volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
@@ -572,13 +572,13 @@ area_mask = 1
 [node name="Left" type="CollisionShape2D" parent="Weapon" index="1"]
 
 position = Vector2( -17, 5 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 disabled = true
 
 [node name="Right" type="CollisionShape2D" parent="Weapon" index="2"]
 
 position = Vector2( 17, 5 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 disabled = true
 
 [node name="UI" type="CanvasLayer" parent="." index="13"]
@@ -592,17 +592,17 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 [node name="RedEye" type="Sprite" parent="UI" index="0"]
 
 material = ExtResource( 16 )
-position = Vector2( 41, 681 )
-scale = Vector2( 2, 2 )
+position = Vector2( 96, 624 )
+scale = Vector2( 6, 6 )
 texture = ExtResource( 17 )
 hframes = 5
-_sections_unfolded = [ "Animation", "Material" ]
+_sections_unfolded = [ "Animation", "Material", "Transform" ]
 
 [node name="BlueEye" type="Sprite" parent="UI" index="1"]
 
 material = ExtResource( 16 )
-position = Vector2( 1240, 680 )
-scale = Vector2( 2, 2 )
+position = Vector2( 1185, 625 )
+scale = Vector2( 6, 6 )
 texture = ExtResource( 18 )
 hframes = 5
 _sections_unfolded = [ "Animation", "Material", "Transform" ]
@@ -625,7 +625,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 10 )
+process_material = SubResource( 11 )
 texture = ExtResource( 19 )
 normal_map = null
 h_frames = 1
@@ -650,7 +650,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 13 )
+process_material = SubResource( 14 )
 texture = ExtResource( 19 )
 normal_map = null
 h_frames = 1
@@ -675,7 +675,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 16 )
+process_material = SubResource( 17 )
 texture = ExtResource( 19 )
 normal_map = null
 h_frames = 1

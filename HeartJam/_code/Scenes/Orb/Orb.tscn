@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://unshaded_material.tres" type="Material" id=1]
-[ext_resource path="res://_graphics/Player/Player_spell_particle.png" type="Texture" id=2]
+[ext_resource path="res://_graphics/Environment/Orb.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 
@@ -42,9 +42,9 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 self_modulate = Color( 0, 1, 0.71875, 1 )
 material = ExtResource( 1 )
-scale = Vector2( 10, 10 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+offset = Vector2( 0.5, 1.5 )
+_sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 

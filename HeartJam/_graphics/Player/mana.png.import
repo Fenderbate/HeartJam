@@ -7,10 +7,10 @@ path="res://.import/mana.png-af9c79eb9454f59d1202837956cc8569.stex"
 [deps]
 
 source_file="res://_graphics/Player/mana.png"
-source_md5="4bd601ae3bbd76ae4298154dbc9b223a"
+source_md5="93f1a815ff803bd0284e5d498c8bc875"
 
 dest_files=[ "res://.import/mana.png-af9c79eb9454f59d1202837956cc8569.stex" ]
-dest_md5="0e7b9e8e533dd7ff68c86e92a72d220a"
+dest_md5="dcf5677f438b8d21798a50bd7995ffd6"
 
 [params]
 
