@@ -431,8 +431,7 @@ position = Vector2( 6048, 896 )
 
 [node name="Player" parent="." index="10" instance=ExtResource( 10 )]
 
-visible = false
-position = Vector2( 2048, 1056 )
+position = Vector2( -441, 356 )
 _sections_unfolded = [ "Collision", "Transform", "Z Index", "collision" ]
 
 [node name="Enemies" type="Node" parent="." index="11"]

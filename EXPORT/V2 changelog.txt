@@ -1,0 +1,8 @@
+* Fixed a bug where the player died but the screen didn't get bright.
+* Adjusted the invisible floor area so it should be easier to "see" it now. Also added more spikes (only cosmetic change)
+* Removed how to play and resolution change option from the in-game pause menu due to: "It doesn't work and I have no idea how to fix it".
+* Tweaked the sound range of some enemies, so they will be heard where they should be.
+* Added the tini-tiny change to the how to play menu and it now mentions that you need the mouse also to play.
+* Added "HowToSkull" to the title screen, so hopefully, more people will read the how to play page.
+
+If you notice any issues, please, be sure to let me know!
