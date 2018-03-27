@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://_code/Scenes/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://_graphics/Environment/Logo.png" type="Texture" id=2]
-[ext_resource path="res://unshaded_material.tres" type="Material" id=3]
-[ext_resource path="res://Font.tres" type="DynamicFont" id=4]
-[ext_resource path="res://_graphics/Menu/GameScreen.png" type="Texture" id=5]
-[ext_resource path="res://_graphics/Menu/magiceyes.png" type="Texture" id=6]
-[ext_resource path="res://_graphics/Menu/vibration.png" type="Texture" id=7]
-[ext_resource path="res://_graphics/Menu/batears.png" type="Texture" id=8]
-[ext_resource path="res://_graphics/Menu/death.png" type="Texture" id=9]
-[ext_resource path="res://_sounds/Music/menu.wav" type="AudioStream" id=10]
+[ext_resource path="res://_graphics/Skeleton/Skeleton_head.png" type="Texture" id=3]
+[ext_resource path="res://_graphics/Menu/bubble.png" type="Texture" id=4]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://unshaded_material.tres" type="Material" id=6]
+[ext_resource path="res://_graphics/Menu/GameScreen.png" type="Texture" id=7]
+[ext_resource path="res://_graphics/Menu/magiceyes.png" type="Texture" id=8]
+[ext_resource path="res://_graphics/Menu/vibration.png" type="Texture" id=9]
+[ext_resource path="res://_graphics/Menu/batears.png" type="Texture" id=10]
+[ext_resource path="res://_graphics/Menu/death.png" type="Texture" id=11]
+[ext_resource path="res://_sounds/Music/menu.wav" type="AudioStream" id=12]
 
 [node name="Menu" type="CanvasLayer"]
 
@@ -24,14 +26,58 @@ _sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="BG" type="Sprite" parent="." index="0"]
 
+pause_mode = 2
 position = Vector2( 640, 352 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Credits" type="Label" parent="." index="1"]
+[node name="HowToSkull" type="Sprite" parent="." index="1"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+position = Vector2( 899.033, 697.867 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="HowToSkull" index="0"]
+
+pause_mode = 2
+position = Vector2( 27.4238, -29.0859 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Label" type="Label" parent="HowToSkull" index="1"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -18.0
+margin_top = -50.0
+margin_right = 312.0
+margin_bottom = 46.0
+rect_scale = Vector2( 0.3, 0.3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 5 )
+text = "Please read the how to play before playing! Thanks! ☠"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Credits" type="Label" parent="." index="2"]
+
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -54,9 +100,10 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material" ]
 
-[node name="Start" type="TextureButton" parent="." index="2"]
+[node name="Start" type="TextureButton" parent="." index="3"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 1.0
 anchor_top = 0.0
@@ -81,6 +128,7 @@ _sections_unfolded = [ "Material", "Textures" ]
 
 [node name="Label" type="Label" parent="Start" index="0"]
 
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -93,16 +141,17 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Start"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Options" type="TextureButton" parent="." index="3"]
+[node name="Options" type="TextureButton" parent="." index="4"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 1.0
 anchor_top = 0.0
@@ -127,6 +176,7 @@ _sections_unfolded = [ "Material", "Textures" ]
 
 [node name="Label" type="Label" parent="Options" index="0"]
 
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -139,16 +189,17 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Options"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="HowToPlay" type="TextureButton" parent="." index="4"]
+[node name="HowToPlay" type="TextureButton" parent="." index="5"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -172,6 +223,7 @@ _sections_unfolded = [ "Material", "Textures" ]
 
 [node name="Label" type="Label" parent="HowToPlay" index="0"]
 
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -184,16 +236,17 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "How to play"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Exit" type="TextureButton" parent="." index="5"]
+[node name="Exit" type="TextureButton" parent="." index="6"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 1.0
 anchor_top = 0.0
@@ -218,6 +271,7 @@ _sections_unfolded = [ "Material", "Textures" ]
 
 [node name="Label" type="Label" parent="Exit" index="0"]
 
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -230,18 +284,18 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Exit"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Options_Panel" type="Control" parent="." index="6"]
+[node name="Options_Panel" type="Control" parent="." index="7"]
 
-editor/display_folded = true
+pause_mode = 2
 visible = false
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -261,6 +315,7 @@ _sections_unfolded = [ "Material" ]
 
 [node name="BG" type="ColorRect" parent="Options_Panel" index="0"]
 
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -278,7 +333,8 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Resolution_Text" type="Label" parent="Options_Panel" index="1"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -294,7 +350,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Resolution"
 percent_visible = 1.0
 lines_skipped = 0
@@ -303,7 +359,8 @@ _sections_unfolded = [ "Material", "custom_fonts" ]
 
 [node name="Resolution" type="OptionButton" parent="Options_Panel" index="2"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -320,7 +377,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 toggle_mode = false
 action_mode = 0
 enabled_focus_mode = 2
@@ -331,11 +388,12 @@ flat = false
 align = 0
 items = [ "1024x576", null, false, 0, null, "1280x720", null, false, 1, null, "1664x936", null, false, 2, null, "1920x1080", null, false, 3, null ]
 selected = 1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Material", "custom_fonts" ]
 
 [node name="VSync_Text" type="Label" parent="Options_Panel" index="3"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -351,7 +409,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Use VSync"
 percent_visible = 1.0
 lines_skipped = 0
@@ -360,7 +418,8 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="VSync" type="CheckButton" parent="Options_Panel" index="4"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -377,7 +436,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 toggle_mode = true
 pressed = true
 enabled_focus_mode = 2
@@ -389,7 +448,8 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Master_Volume_Text" type="Label" parent="Options_Panel" index="5"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -406,7 +466,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Master Volume"
 percent_visible = 1.0
 lines_skipped = 0
@@ -415,7 +475,8 @@ _sections_unfolded = [ "Hint", "Mouse", "custom_fonts" ]
 
 [node name="MasterSound" type="HSlider" parent="Options_Panel" index="6"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -446,7 +507,8 @@ focus_mode = 2
 
 [node name="Sound_Text" type="Label" parent="Options_Panel" index="7"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -463,7 +525,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Sound"
 percent_visible = 1.0
 lines_skipped = 0
@@ -472,7 +534,8 @@ _sections_unfolded = [ "Hint", "Mouse", "custom_fonts" ]
 
 [node name="Sound" type="HSlider" parent="Options_Panel" index="8"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -503,7 +566,8 @@ focus_mode = 2
 
 [node name="Music_Text" type="Label" parent="Options_Panel" index="9"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -520,7 +584,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Music"
 percent_visible = 1.0
 lines_skipped = 0
@@ -529,7 +593,8 @@ _sections_unfolded = [ "Hint", "Mouse", "custom_fonts" ]
 
 [node name="Music" type="HSlider" parent="Options_Panel" index="10"]
 
-material = ExtResource( 3 )
+pause_mode = 2
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -558,11 +623,17 @@ tick_count = 0
 ticks_on_borders = false
 focus_mode = 2
 
-[node name="HTP_Panel" type="Control" parent="." index="7"]
+[node name="LayerItUp" type="Sprite" parent="Options_Panel" index="11"]
 
+pause_mode = 2
+_sections_unfolded = [ "Z Index" ]
+
+[node name="HTP_Panel" type="Control" parent="." index="8"]
+
+pause_mode = 2
 editor/display_folded = true
 visible = false
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -578,7 +649,7 @@ _sections_unfolded = [ "Material" ]
 
 [node name="BG" type="ColorRect" parent="HTP_Panel" index="0"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -666,7 +737,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "1"
 align = 1
 valign = 1
@@ -728,7 +799,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "2"
 align = 1
 valign = 1
@@ -790,7 +861,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "3"
 align = 1
 valign = 1
@@ -852,7 +923,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "W"
 align = 1
 valign = 1
@@ -914,7 +985,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "E"
 align = 1
 valign = 1
@@ -976,7 +1047,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "A"
 align = 1
 valign = 1
@@ -1038,7 +1109,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "S"
 align = 1
 valign = 1
@@ -1100,7 +1171,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "D"
 align = 1
 valign = 1
@@ -1161,7 +1232,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Space"
 align = 1
 valign = 1
@@ -1186,7 +1257,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "[1] - Toggle \"Magic eyes\" spell
 [2] - Toggle \"Vibration\" spell
 [3] - Toggle \"Bat ears\" spell
@@ -1195,7 +1266,8 @@ text = "[1] - Toggle \"Magic eyes\" spell
 [S] - Jump off bridges
 [D] - Go right
 [E] - Use ladder
-[Space] - Attack"
+[Space] - Attack
+[Mouse] - Aim the \"Magic eyes\" spell"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -1242,7 +1314,7 @@ color = Color( 1, 1, 1, 1 )
 
 position = Vector2( 355, 201 )
 scale = Vector2( 0.55, 0.55 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Label" type="Label" parent="HTP_Panel/Page 1" index="1"]
@@ -1261,7 +1333,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "The eyes indicate how much health and mana you have. The more closed they are, the less you have remaining."
 align = 1
 valign = 1
@@ -1277,7 +1349,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 editor/display_folded = true
 visible = false
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1294,22 +1366,22 @@ _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HTP_Panel/Page 2" index="0"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 1008.0
-margin_bottom = 112.0
+margin_left = -7.0
+margin_top = 10.0
+margin_right = 985.0
+margin_bottom = 106.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Your eyesight is limited.
 Use your spells to navigate in the dungeon.
 The spells also cost mana."
@@ -1321,7 +1393,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Label2" type="Label" parent="HTP_Panel/Page 2" index="1"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1336,7 +1408,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "press [1] to activate the \"Magic eyes\" spell:
 makes a clear vision cone.
 uses the most mana."
@@ -1347,7 +1419,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Label3" type="Label" parent="HTP_Panel/Page 2" index="2"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1362,7 +1434,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "press [2] to activate the \"Vibration\" spell:
 reveals moving objects momentarily.
 uses less mana."
@@ -1373,7 +1445,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Label4" type="Label" parent="HTP_Panel/Page 2" index="3"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1388,7 +1460,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "press [3] to activate the \"Bat Ears\" spell:
 makes small spots near noisy objects.
 uses the least mana."
@@ -1399,7 +1471,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Border" type="ColorRect" parent="HTP_Panel/Page 2" index="4"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1418,15 +1490,15 @@ color = Color( 1, 1, 1, 1 )
 
 [node name="magiceyes" type="Sprite" parent="HTP_Panel/Page 2" index="5"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 position = Vector2( 843, 224 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Border2" type="ColorRect" parent="HTP_Panel/Page 2" index="6"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1445,15 +1517,15 @@ color = Color( 1, 1, 1, 1 )
 
 [node name="vibration" type="Sprite" parent="HTP_Panel/Page 2" index="7"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 position = Vector2( 842.892, 415.878 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Border3" type="ColorRect" parent="HTP_Panel/Page 2" index="8"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1472,23 +1544,25 @@ color = Color( 1, 1, 1, 1 )
 
 [node name="batears" type="Sprite" parent="HTP_Panel/Page 2" index="9"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 position = Vector2( 842.892, 607.878 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Page 3" type="Control" parent="HTP_Panel" index="4" groups=[
 "Page",
 ]]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 36.0
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 76.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -1519,7 +1593,7 @@ color = Color( 1, 1, 1, 1 )
 
 position = Vector2( 477.37, 245.796 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Label" type="Label" parent="HTP_Panel/Page 3" index="2"]
@@ -1538,7 +1612,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "When you die, the screen turns completely bright, so you see what killed you."
 align = 1
 valign = 1
@@ -1557,6 +1631,7 @@ anchor_bottom = 0.0
 margin_top = 17.0
 margin_right = 82.0
 margin_bottom = 43.0
+rect_scale = Vector2( 2.5, 2.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -1584,7 +1659,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "< Prev"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1598,10 +1673,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 909.0
-margin_top = 19.0
-margin_right = 992.0
-margin_bottom = 47.0
+margin_left = 773.0
+margin_top = 17.0
+margin_right = 856.0
+margin_bottom = 45.0
+rect_scale = Vector2( 2.5, 2.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -1629,18 +1705,19 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Next >"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Exit_Game" type="Panel" parent="." index="8"]
+[node name="Exit_Game" type="Panel" parent="." index="9"]
 
+pause_mode = 2
 editor/display_folded = true
 visible = false
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1676,7 +1753,7 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Text" type="Label" parent="Exit_Game" index="1"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1690,7 +1767,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Close the game?"
 align = 1
 valign = 1
@@ -1701,7 +1778,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Yes" type="TextureButton" parent="Exit_Game" index="2"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1738,7 +1815,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "Yes"
 align = 1
 valign = 1
@@ -1749,7 +1826,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="No" type="TextureButton" parent="Exit_Game" index="3"]
 
-material = ExtResource( 3 )
+material = ExtResource( 6 )
 use_parent_material = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1786,7 +1863,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "No"
 align = 1
 valign = 1
@@ -1795,9 +1872,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Music" type="AudioStreamPlayer" parent="." index="9"]
+[node name="Music" type="AudioStreamPlayer" parent="." index="10"]
 
-stream = ExtResource( 10 )
+stream = ExtResource( 12 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0

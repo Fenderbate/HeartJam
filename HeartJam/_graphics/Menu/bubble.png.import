@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cinematic_3_4_5_6_text.png-fae000b5df9efdd1fc61110c57a0e49e.stex"
+path="res://.import/bubble.png-87533c51a1022f7854bad3f73e911054.stex"
 
 [deps]
 
-source_file="res://_graphics/Cinematic/Cinematic_3_4_5_6_text.png"
-source_md5="46ba234317efa4d3a2d7e71e89adc84f"
+source_file="res://_graphics/Menu/bubble.png"
+source_md5="776431af723618cff473497fe7157af9"
 
-dest_files=[ "res://.import/Cinematic_3_4_5_6_text.png-fae000b5df9efdd1fc61110c57a0e49e.stex" ]
-dest_md5="2972bac6354ce4717e5d15efb15cd591"
+dest_files=[ "res://.import/bubble.png-87533c51a1022f7854bad3f73e911054.stex" ]
+dest_md5="971c1df54f0e73b986b5bc6f2b36e180"
 
 [params]
 

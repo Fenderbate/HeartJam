@@ -133,15 +133,10 @@ func hurt(damage):
 	healthstatus()
 	if(health <= 0):
 		$Sprite.hide()
-		show_screen()
+		get_parent().add_child(load("res://_code/Scenes/Game Over/Game_Over.tscn").instance())
 		pass
 	else: say(enemyhit[rand_range(0,enemyhit.size())],1)
-
-func show_screen():
-	$DeathLight.show()
-	if !$DeathLight.visible: show_screen()
-	else:
-		get_parent().add_child(load("res://_code/Scenes/Game Over/Game_Over.tscn").instance())
+		
 
 func say(text, time, persistent = false):
 	if persistent == true:
